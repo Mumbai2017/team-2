@@ -14,9 +14,8 @@ public class TechWeb extends AppCompatActivity {
         setContentView(R.layout.activity_tech_web);
 
         wvT = (WebView) findViewById(R.id.webViewTech);
+        wvT.getSettings().setJavaScriptEnabled(true);
         wvT.loadUrl("https://ayushkhanvilkar96.github.io/CaseyNeistatWebsite/");
-        setContentView(wvT);
-        
 
     }
 }
