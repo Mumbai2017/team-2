@@ -29,7 +29,7 @@ if(isset($_GET["cust_phone"])){
     exit();
 	}
 	else {
-    $sql = "INSERT INTO order (customer_id, quantity, inventory_id, orderTS, sakhi_id,  delivery_address, price)
+    $sql = "INSERT INTO orders (customer_id, quantity, inventory_id, orderTS, sakhi_id,  delivery_address, price)
 		        VALUES($cust_id, $quantity, $inv_id, now(), $sakhi_id, '$address', $price)";
     echo $sql;
     $query = mysqli_query($connection, $sql);
