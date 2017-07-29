@@ -62,21 +62,16 @@ if (isset($_POST['appreciate'])) {
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="../dashboard.html" style="color: white;">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white;">Features</a>
+                            <a class="nav-link" href="../ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: white;">Pricing</a>
+                            <a class="nav-link" href="../inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown btn-group">
-                            <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">Dropdown</a>
-                            <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-                                <a class="dropdown-item">Action</a>
-                                <a class="dropdown-item">Another action</a>
-                                <a class="dropdown-item">Something else here</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Sakhiorders.html" style="color: white;">Sakhi<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
@@ -112,18 +107,19 @@ if (isset($_POST['appreciate'])) {
                             <form action="sendtweet.php" method="">
 							<div class="md-form">
                                 <i class="fa fa-pencil-square-o prefix"></i>
-				                <textarea type="text" id="form76" class="md-textarea" name="message">
-									<?php
-									$sql = "SELECT name from sakhis where id = (SELECT sakhi_id FROM `orders` where status=1 group by sakhi_id order by count(*) DESC LIMIT 1)";
-									$result = mysqli_query($connection, $sql);
-									
-									if (mysqli_num_rows($result) > 0) 
+								<?php
+								$msg = "";
+								$sql = "SELECT name from sakhis where id = (SELECT sakhi_id FROM `orders` where status=1 group by sakhi_id order by count(*) DESC LIMIT 1)";
+								$result = mysqli_query($connection, $sql);
+								if (mysqli_num_rows($result) > 0) 
+								{
+									while($row = mysqli_fetch_assoc($result))
 									{
-										while($row = mysqli_fetch_assoc($result)) 
-										{echo "Congratulations to ".$row["name"]. "for being the most hardworking volunteer! Chaakri Mahila Udyog appreciates & recognizes her support!";}
+										$msg =  "Congratulations to ".$row["name"]. " for being the most hardworking volunteer! Chaakri Mahila Udyog appreciates & recognizes her immense support!";
 									}
-									?>
-								</textarea>
+								}
+								?>
+				                <textarea type="text" id="form76" class="md-textarea" name="message"><?php echo $msg;?></textarea>
 				                <label for="form76">
 									Start tweeting...
 								</label>
