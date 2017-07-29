@@ -1,7 +1,7 @@
 <?php 	include_once("php_includes/db_conx.php");
 
 if(isset($_GET["cust_phone"])){
-	$m = $_GET["cust_phone"]
+	$m = $_GET["cust_phone"];
 	$sql = "SELECT id  FROM users WHERE mobile_no=$m LIMIT 1";
   $query = mysqli_query($connection, $sql);
 	echo $sql;
@@ -23,7 +23,7 @@ if(isset($_GET["cust_phone"])){
 		$address = $row[0];
 		*/
  $price = "10";
- 
+
 	if($quantity == "" || $cust_id == "" || $price == "" || $inv_id == ""){
 		echo "missing_values";
     exit();
