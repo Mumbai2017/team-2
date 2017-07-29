@@ -14,7 +14,7 @@ if(isset($_GET["cust_phone"])){
 	$address = "";
 
 	if(isset($_GET['address']) )
-		$address = mysqli_escape_string($_GET['address']);
+		$address = htmlentities($_GET['address']);
 	/*
 		$sql = "SELECT address  FROM customers WHERE mobile_no=$m LIMIT 1";
 	  $query = mysqli_query($connection, $sql);
