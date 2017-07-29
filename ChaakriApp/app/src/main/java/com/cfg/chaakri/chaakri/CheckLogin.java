@@ -75,6 +75,13 @@ class CheckLogin extends AsyncTask<String, Void, String> {
         {
             Toast.makeText(ctx,"Login success uslvl="+userlvl,Toast.LENGTH_SHORT).show();
 
+            SharedPreferences.Editor editor = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
+            editor.putString("Username", us);
+            editor.putString("Password", pw);
+            editor.putString("Name",result);
+            editor.putString("text","YES");
+            editor.commit();
+
             Intent i = new Intent(ctx,MainActivity.class);
             if (userlvl.equalsIgnoreCase("1"))
             i = new Intent(ctx,NavActivitySakhi.class);
