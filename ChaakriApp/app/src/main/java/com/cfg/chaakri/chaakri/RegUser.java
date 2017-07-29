@@ -50,7 +50,7 @@ class RegUser extends AsyncTask<String, Void, String> {
             addr = rec[6];
 
 
-            Log.e("Taghere","us="+us+",pw="+pw+",userlvl="+userlvl);
+            Log.e("Taghere","us="+us+",pw="+pw+",userlvl="+userlvl+",Name:"+nameu);
 
             httpclient = new DefaultHttpClient();
             request = new HttpGet("http://stylopolitan.com/chaakri/register.php?mobile_no=" + us + "&password=" + pw + "&user_type=" + userlvl + "&lat=" + lat + "&lng=" + longi + "&name=" + nameu + "&address=" + addr);
