@@ -30,7 +30,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class NavActivitySakhi extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements AddOrder.OnFragmentInteractionListener,
+       /* OrderList.OnFragmentInteractionListener,
+        NGOOrder.OnFragmentInteractionListener, */
+        NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +42,14 @@ public class NavActivitySakhi extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        }); */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -123,4 +126,10 @@ public class NavActivitySakhi extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onFragmentInteraction(String uri) {
+        getSupportActionBar().setTitle(uri);
+    }
+
 }

@@ -64,13 +64,23 @@ public class NGOOrder extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ngoorder, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_order, container, false);
+
+
+        // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
+        // ie we are sending "Fragment 1" as title parameter when fragment1 is activated
+        if (mListener != null) {
+            mListener.onFragmentInteraction("NGO Order");
+        }
+
+        return view;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction("NGO Order");
         }
     }
 
@@ -103,6 +113,6 @@ public class NGOOrder extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String uri);
     }
 }
