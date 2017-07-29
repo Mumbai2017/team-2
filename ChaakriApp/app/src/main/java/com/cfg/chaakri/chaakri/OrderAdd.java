@@ -22,7 +22,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 class OrderAdd extends AsyncTask<String, Void, String> {
     Context ctx;
-    String flv,qnt,cnum;
+    String flv,qnt,cnum,snum;
 
     public OrderAdd(Context context)
     {
@@ -44,9 +44,10 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
             cnum = rec[2];
 
+            snum = rec[3];
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/Orders.php?flv=" + flv + "&pw=" + qnt + "&userlvl=" +cnum);
+            request = new HttpGet("http://stylopolitan.com/chaakri/Orders.php?inv_id=" + flv + "&quantity=" + qnt + "&cust_phone=" +cnum+ "&sakhi_phone=" +snum);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";

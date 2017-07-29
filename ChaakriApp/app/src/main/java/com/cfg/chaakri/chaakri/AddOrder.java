@@ -1,6 +1,7 @@
 package com.cfg.chaakri.chaakri;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -87,6 +90,10 @@ public class AddOrder extends Fragment {
         Quant = (EditText) view.findViewById(R.id.editQuan);
         CustNum = (EditText) view.findViewById(R.id.editNumber);
 
+        SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
+        String restoredText = prefs.getString("text", null);
+        final String sakhi_id = prefs.getString("Username","No id");
+
         done = (Button) view.findViewById(R.id.buttonDone);
 
         done.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +103,7 @@ public class AddOrder extends Fragment {
                 String qnt = Quant.getText().toString();
                 String cnum = CustNum.getText().toString();
 
-                String send = flv + "," + qnt + "," +cnum ;
+                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id ;
 
                 new OrderAdd(getContext()).execute(send);
 
