@@ -62,7 +62,7 @@ if (isset($_POST['appreciate'])) {
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="../dashboard.html" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="../dashboard.php" style="color: white;">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
