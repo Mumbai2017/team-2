@@ -10,7 +10,17 @@ if(isset($_GET["cust_phone"])){
 	$quantity = preg_replace('#[^0-9]#', '', $_GET['quantity']);
 	$inv_id = preg_replace('#[^0-9]#i', '', $_GET['inv_id']);
 	$price =  $inv_id * 10;             //preg_replace('#[^0-9]#', '', $_GET['price']);
-	$sakhi_id = $_GET['sakhi_id'];
+	$sakhi_id = "";
+
+	$sakhi_phone = $_GET['sakhi_phone'];
+	if($sakhi_phone ==0)
+		$sakhi_id = 0;
+	else{
+		$sql = "SELECT id  FROM users WHERE mobile_no=$sakhi_phone LIMIT 1";
+	  $query = mysqli_query($connection, $sql);
+	  $row = mysqli_fetch_row($query);
+		$sakhi_id = $row[0];
+	}
 	$address = "";
 
 	if(isset($_GET['address']) )
