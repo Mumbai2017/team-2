@@ -1,10 +1,10 @@
 <?php
-if(isset($_POST["mobile_no"])){
+if(isset($_GET["mobile_no"])){
 	// CONNECT TO THE DATABASE
 	include_once("php_includes/db_conx.php");
 	// GATHER THE POSTED DATA INTO LOCAL VARIABLES AND SANITIZE
   $password = $_GET['password'];
-	$p = md5($_POST['password']);
+	$p = md5($password);
 	if($e == "" || $p == ""){
 		echo "login_failed";
     exit();
