@@ -4,12 +4,18 @@ require_once('php_includes/db_conx.php');
 
 $inventory_name = $_GET['inventory_name'];
 $inventory_quantity = $_GET['inventory_quantity'];
+$inventory_price = $_GET['inventory_price'];
+
+$sql = "INSERT INTO inventory(product,quantity,price) values('".$inventory_name."',".$inventory_quantity.",".$inventory_price.")";
 
 if ($con->query($sql) === TRUE)
 {
-	$sql1 = "INSERT INTO inventory(product,quantity) values('".$inventory_name."',".$quantity.")";
+	$url="return.php?data=success";
+	Header("Location: $url");
 }
-
-$url="return.php?data=success";
-Header("Location: $url");
+else
+{
+	$url="return.php?data=fail";
+	Header("Location: $url");
+}
 ?>	
