@@ -17,22 +17,49 @@ if (isset($_GET['edit'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<title>Inventory Management</title>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Inventory Management</title>
+    <!-- Font A Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="dashboardstyle.css" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-fixed-top" style="margin-bottom: 15px; background-color: #0195BA;">
   <div class="container">
-  <ul class="nav navbar-nav">
-    <li><a style="color: white; font-size: 30px;" href="#">Chaakri</a></li>
-    <li><a style="color: white; font-size: 20px;"  href="#">Home</a></li>
-    <li><a style="color: white; font-size: 20px;"  href="#">Orders</a></li>
-    <li><a style="color: white; font-size: 20px;"  href="#">Inventory</a></li>
-  </ul>
-  </div>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="dashboard.php" style="color: white;">
+			<strong>Chaakri</strong>
+		</a>
+		<div class="collapse navbar-collapse" id="navbarNav1">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="way2sms/sms.php" style="color: white;">Promotion
+					<span class="sr-only">(current)</span></a>
+				</li>
+				 <li class="nav-item">
+					<a class="nav-link" href="sakhiorders.php" style="color: white;">Sakhi Orders<span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
 </nav>
 
 
