@@ -1,4 +1,21 @@
+<?php
+include_once('../php_processing/php_includes/db_conx.php');
+$sql = "SELECT product from inventory where id = (SELECT inventory_id FROM `orders` group by inventory_id order by count(*) DESC LIMIT 1)";
+$query = mysqli_query($connection, $sql);
+$result = mysqli_fetch_assoc($query);
+$major_sale = $result['product'];
 
+$sql = "SELECT product from inventory where id = (SELECT inventory_id FROM `orders` group by inventory_id order by count(*) DESC LIMIT 1)";
+$query = mysqli_query($connection, $sql);
+$result = mysqli_fetch_assoc($query);
+$major_sale = $result['product'];
+
+$sql = "SELECT product from inventory where id = (SELECT inventory_id FROM `orders` group by inventory_id order by count(*) DESC LIMIT 1)";
+$query = mysqli_query($connection, $sql);
+$result = mysqli_fetch_assoc($query);
+$major_sale = $result['product'];
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Dashboard</title>
-    <!-- Font Awesome -->
+    <!-- Font A Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +37,6 @@
 </head>
 
 <body>
-
 
     <header>
         <!--Navbar-->
@@ -44,6 +60,9 @@
                             <a class="nav-link" href="way2sms/sms.php" style="color: white;">Promotion
                             <span class="sr-only">(current)</span></a>
                         </li>
+						 <li class="nav-item">
+                            <a class="nav-link" href="sakhiorders.php" style="color: white;">Sakhi Orders<span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,11 +79,11 @@
             <div class="col-md-10">
                 <h1 class="card-text">Statistics</h1>
                 <hr>
-            </div> 
+            </div>
             <div class="col-md-2">
               <a href="twitterapi/sendtweet.php" class="btn btn-primary" style="color: white;">
               Appreciate</a>
-            </div>       
+            </div>
         </div>
 
         <div class="row">
@@ -77,7 +96,7 @@
                        <span class="badge indigo"><h5 style="color: white;">Highest Sold<br>Flavour</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h4 class="card-text" style="color: black;">Jeera-1000 Kgs</h4>
+                       <h4 class="card-text" style="color: black;"><?php echo $max_sales;?></h4>
                    </div>
                </div>
                </div>
@@ -121,18 +140,18 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-block">
-                        <div id="timegraph" style="width: 100%; height: 100%;"></div>   
+                        <div id="timegraph" style="width: 100%; height: 100%;"></div>
                     </div>
-                </div>      
+                </div>
             </div>
 
 
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-block">
-                        <div id="barchart" style="width: 100%; height: 100%;"></div>   
+                        <div id="barchart" style="width: 100%; height: 100%;"></div>
                     </div>
-                </div>      
+                </div>
             </div>
         </div>
 
@@ -186,9 +205,9 @@
 <div class="col-md-6">
   <div class="card">
     <div class="card-block">
-      <div id="donut" style="width: 100%; height: 350px;"></div>   
+      <div id="donut" style="width: 100%; height: 350px;"></div>
     </div>
-  </div> 
+  </div>
 </div>
 
 

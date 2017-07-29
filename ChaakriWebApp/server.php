@@ -9,13 +9,9 @@ $edit_state=false;
 
 //Check
 //making connection to the database
-<<<<<<< HEAD
-include_once('../php_processing/php_includes/db_conx.php');
-$db = $connection;
-=======
 include_once("../php_processing/php_includes/db_conx.php");
 $db=$connection;
->>>>>>> 00043a0e800ac60161c0d7ae35fe0e1d70993546
+
 
 //If save button is clicked
 if (isset($_POST['save'])) {
