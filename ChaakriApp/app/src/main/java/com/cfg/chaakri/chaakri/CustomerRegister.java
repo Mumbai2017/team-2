@@ -28,9 +28,6 @@ EditText username,mobilenumber;
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
                 }
-                else{
-                    gps.showSettingsAlert();
-                }
                 else
                 {
                     Toast.makeText(CustomerRegister.this,"Unable to rtrieve loc",Toast.LENGTH_SHORT).show();
