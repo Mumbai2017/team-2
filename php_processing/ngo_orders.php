@@ -4,6 +4,7 @@ include_once("php_includes/db_conx.php");
 if(isset($_GET["sakhi_phone"])){
 	// CONNECT TO THE DATABASE
 	// GATHER THE GETED DATA INTO LOCAL VARIABLES
+	$m=$_GET["sakhi_phone"];
 	$sql = "SELECT id  FROM users WHERE mobile_no=$m LIMIT 1";
   $query = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($query);
