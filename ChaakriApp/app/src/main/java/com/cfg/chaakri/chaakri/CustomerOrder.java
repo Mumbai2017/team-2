@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class CustomerOrder extends AppCompatActivity {
     RadioGroup type,location;
-    EditText quantity;
+    EditText quantity,locationtext;
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
     Button orderbutton;
     int idx=99;
@@ -25,6 +25,7 @@ public class CustomerOrder extends AppCompatActivity {
         setContentView(R.layout.activity_customer_order);
         type=(RadioGroup)findViewById(R.id.type);
         quantity=(EditText)findViewById(R.id.quantity);
+        locationtext=(EditText)findViewById(R.id.locationtext);
         location=(RadioGroup)findViewById(R.id.location);
         r1=(RadioButton)findViewById(R.id.radiobutton1);
         r2=(RadioButton)findViewById(R.id.radiobutton2);
@@ -37,14 +38,14 @@ public class CustomerOrder extends AppCompatActivity {
         r9=(RadioButton)findViewById(R.id.radiobutton9);
         l1=(RadioButton)findViewById(R.id.homelocation);
         l2=(RadioButton)findViewById(R.id.otherlocation);
-        location.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*location.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 int id=radioGroup.getCheckedRadioButtonId();
                 if(id==1)
                     y="0";
                 else{
-                    quantity.setVisibility(View.VISIBLE);
+                    y="1"+quantity.getText().toString();
                 }
             }
         });
@@ -54,21 +55,24 @@ public class CustomerOrder extends AppCompatActivity {
                 int id=radioGroup.getCheckedRadioButtonId();
                 x=""+id;
             }
-        });
+        });*/
         orderbutton=(Button)findViewById(R.id.orderbutton);
         orderbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                send=x+" "+quantity.getText().toString();
-                if(y.equals("0"))
+
+
+                //send=x+" "+quantity.getText().toString();
+                //send+=" "+y;
+               /* if(y.equals("0"))
                 {
                     send+=" "+y;
                 }
-                else send+=" 1 "+quantity.getText().toString();
+                else send+=" 1 "+quantity.getText().toString();*/
 
-                Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT);
+                //Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
 
-               /* int typeid=type.getCheckedRadioButtonId();
+               int typeid=type.getCheckedRadioButtonId();
                 int locationid=location.getCheckedRadioButtonId();
                 switch(typeid)
                 {
@@ -100,7 +104,7 @@ public class CustomerOrder extends AppCompatActivity {
                         x="9";
                         break;
                 }
-                /*switch(locationid)
+                switch(locationid)
                 {
                     case (R.id.homelocation):
                         y="0";
@@ -110,10 +114,11 @@ public class CustomerOrder extends AppCompatActivity {
                 }
                 if(y.equals("1"))
                 {
-
+                    y+=" "+locationtext.getText().toString();
                 }
-                */
 
+                send= x+ " "+quantity.getText().toString()+" "+y;
+                Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
 
             }
         });

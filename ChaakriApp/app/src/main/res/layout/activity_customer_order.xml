@@ -86,7 +86,7 @@
         android:id="@+id/locationtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"/>
+        />
     <Button
         android:id="@+id/orderbutton"
         android:layout_width="wrap_content"
