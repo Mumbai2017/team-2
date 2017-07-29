@@ -7,18 +7,18 @@
     tools:context="com.cfg.chaakri.chaakri.SakhiFirst">
 
     <Button
-        android:id="@+id/buttonSakhi"
+        android:id="@+id/buttonSakhiLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign-in as Sakhi"
+        android:text="Login"
         android:layout_alignParentBottom="true" />
 
     <Button
-        android:id="@+id/buttonCustomer"
+        android:id="@+id/buttonSakhiRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign-in as Customer"
-        android:layout_above="@+id/buttonSakhi" />
+        android:text="Register"
+        android:layout_above="@+id/buttonSakhiLogin" />
 
 
 </RelativeLayout>

@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SakhiFirst"></activity>
+        <activity android:name=".SakhiFirst" />
+        <activity android:name=".SakhiLogin" />
+        <activity android:name=".SakhiRegister"></activity>
     </application>
 
 </manifest>
