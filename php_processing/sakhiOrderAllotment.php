@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+require_once('php_includes/db_conx.php');
 
 function getMagicSakhi()
 {
@@ -7,17 +9,25 @@ function getMagicSakhi()
 
 function getAvailableSakhi()
 {
-	$result = $connection->query("SELECT id FROM `sakhis` WHERE `availability`=1");
-
-	if($result->num_rows > 0) 
+	$arr = array();
+	
+	$sql = "SELECT id FROM `sakhis` WHERE `availability`=1";
+	$result = mysqli_query($GLOBALS['connection'], $sql);
+	$x=0;
+	
+	if (mysqli_num_rows($result) > 0) 
 	{
-		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		while($row = mysqli_fetch_assoc($result)) 
 		{
-			$arr[3] = $row["id"]; //Sakhi ID
-		
+			$arr[$x] = $row["id"]; //Sakhi ID
+			$x = $x + 1;
 		}
 	}
+	
+	print_r($arr);
 }
+
+getAvailableSakhi();
 
 function get_coordinates($address)
 {
