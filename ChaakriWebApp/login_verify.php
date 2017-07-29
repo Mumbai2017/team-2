@@ -10,13 +10,13 @@ if(isset($_POST['form3']) && isset($_POST['form4']))
 	}
 	else
 	{
-		$url="index.html?msg=invalid";
+		$url="index.php?msg=invalid";
 		Header("Location: $url");
 	}
 }
 else
 {
-	$url="index.html?msg=illegal";
+	$url="index.php?msg=illegal";
 	Header("Location: $url");
 }
 ?>
