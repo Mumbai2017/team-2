@@ -1,4 +1,5 @@
 <?php 	include_once("php_includes/db_conx.php");
+include_once("sakhiOrderAllotment.php");
 
 if(isset($_GET["cust_phone"])){
 	$m = $_GET["cust_phone"];
@@ -14,7 +15,9 @@ if(isset($_GET["cust_phone"])){
 
 	$sakhi_phone = $_GET['sakhi_phone'];
 	if($sakhi_phone == '0'){
-		$sakhi_id = 0;
+		//$sakhi_id = 0;
+		//Changed to MagicSakhi Logic
+		$sakhi_id = (int)getMagicSakhi();
 	}
 	else{
 		$sql = "SELECT id  FROM users WHERE mobile_no=$sakhi_phone LIMIT 1";
