@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,10 +59,14 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <h1 class="card-text">Statistics</h1>
                 <hr>
-            </div>        
+            </div> 
+            <div class="col-md-2">
+              <a href="twitterapi/sendtweet.php" class="btn btn-primary" style="color: white;">
+              Appreciate</a>
+            </div>       
         </div>
 
         <div class="row">
