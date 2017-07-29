@@ -9,7 +9,8 @@ $edit_state=false;
 
 
 //making connection to the database
-$db=mysqli_connect('localhost','root','','crud');
+include_once("../php_processing/php_includes/db_conx.php");
+$db=$connection;
 
 //If save button is clicked
 if (isset($_POST['save'])) {
