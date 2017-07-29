@@ -20,7 +20,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 class RegUser extends AsyncTask<String, Void, String> {
     Context ctx;
-    String us,pw,userlvl,lat,longi;
+    String us,pw,userlvl,lat,longi,nameu;
 
     public RegUser(Context context)
     {
@@ -45,10 +45,12 @@ class RegUser extends AsyncTask<String, Void, String> {
             lat = rec[3];
             longi = rec[4];
 
+            nameu = rec[5];
+
             Log.e("Taghere","us="+us+",pw="+pw+",userlvl="+userlvl);
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/register.php?mobile_no=" + us + "&password=" + pw + "&user_type=" + userlvl + "&lat=" + lat + "&lng=" + longi);
+            request = new HttpGet("http://stylopolitan.com/chaakri/register.php?mobile_no=" + us + "&password=" + pw + "&user_type=" + userlvl + "&lat=" + lat + "&lng=" + longi + "&name=" + nameu);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";

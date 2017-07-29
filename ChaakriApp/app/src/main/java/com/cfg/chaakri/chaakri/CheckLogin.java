@@ -46,6 +46,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
             Log.e("Check", "us=" + us + " pass=" + pw + "ok");
 
+
             httpclient = new DefaultHttpClient();
             request = new HttpGet("http://stylopolitan.com/chaakri/login.php?mobile_no=" + us + "&password=" + pw + "&user_level=" +userlvl);
             response = httpclient.execute(request);
@@ -70,7 +71,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
         Log.e("Result", "Result" + result);
 
-        if (result.trim()=="success")
+        if (result.equalsIgnoreCase("success"))
         {
             SharedPreferences.Editor editor = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
             editor.putString("Username", us);
@@ -79,7 +80,11 @@ class CheckLogin extends AsyncTask<String, Void, String> {
             editor.putString("text","YES");
             editor.commit();
 
-            Intent i = new Intent(ctx,NavActivitySakhi.class);
+            Intent i = new Intent(ctx,MainActivity.class);
+            if (userlvl.equalsIgnoreCase("1"))
+            i = new Intent(ctx,NavActivitySakhi.class);
+            else if(userlvl.equalsIgnoreCase("2"))
+            i = new Intent(ctx,NavActivitySakhi.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
         }
