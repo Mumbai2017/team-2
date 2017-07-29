@@ -17,6 +17,8 @@ public class CustomerOrder extends AppCompatActivity {
     Button orderbutton;
     int idx=99;
     String x="";
+    String y="";
+    String send="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +35,41 @@ public class CustomerOrder extends AppCompatActivity {
         r7=(RadioButton)findViewById(R.id.radiobutton7);
         r8=(RadioButton)findViewById(R.id.radiobutton8);
         r9=(RadioButton)findViewById(R.id.radiobutton9);
-        l1=(RadioButton)findViewById(R.id.currentlocation);
+        l1=(RadioButton)findViewById(R.id.homelocation);
         l2=(RadioButton)findViewById(R.id.otherlocation);
+        location.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                int id=radioGroup.getCheckedRadioButtonId();
+                if(id==1)
+                    y="0";
+                else{
+                    quantity.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                int id=radioGroup.getCheckedRadioButtonId();
+                x=""+id;
+            }
+        });
         orderbutton=(Button)findViewById(R.id.orderbutton);
         orderbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int typeid=type.getCheckedRadioButtonId();
+                send=x+" "+quantity.getText().toString();
+                if(y.equals("0"))
+                {
+                    send+=" "+y;
+                }
+                else send+=" 1 "+quantity.getText().toString();
+
+                Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT);
+
+               /* int typeid=type.getCheckedRadioButtonId();
+                int locationid=location.getCheckedRadioButtonId();
                 switch(typeid)
                 {
                     case (R.id.radiobutton1) :
@@ -70,7 +100,19 @@ public class CustomerOrder extends AppCompatActivity {
                         x="9";
                         break;
                 }
-                Toast.makeText(CustomerOrder.this,x,Toast.LENGTH_SHORT).show();
+                /*switch(locationid)
+                {
+                    case (R.id.homelocation):
+                        y="0";
+                        break;
+                    case (R.id.otherlocation):
+                        y="1";
+                }
+                if(y.equals("1"))
+                {
+
+                }
+                */
 
 
             }
