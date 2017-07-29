@@ -3,11 +3,11 @@ include_once('php_includes/db_conx.php');
 
 if(isset($_GET['sakhi_phone'])){
   $sakhi_phone = $_GET['sakhi_phone'];
-  $sql = "SELECT id  FROM users WHERE mobile_no=$sakhi_phone AND status = 0 LIMIT 1";
+  $sql = "SELECT id  FROM users WHERE mobile_no=$sakhi_phone LIMIT 1";
   $query = mysqli_query($connection, $sql);
   $row = mysqli_fetch_row($query);
   $sakhi_id = $row[0];
-  $sql = "SELECT *  FROM orders WHERE sakhi_id = $sakhi_id";
+  $sql = "SELECT *  FROM orders WHERE sakhi_id = $sakhi_id AND status = 0";
   $query = mysqli_query($connection, $sql);
   $i=0;
   $arr = array();
