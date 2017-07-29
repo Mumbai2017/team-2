@@ -1,5 +1,5 @@
 <?php
-define('DBHOST', 'localhost'); //111.118.215.222
+define('DBHOST', '45.113.122.178'); //localhost
 define('DBUSER', 'stylokzt_alpha');
 define('DBPASS', 'sarvaswa');
 define('DBNAME', 'stylokzt_chaakri');
