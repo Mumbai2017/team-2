@@ -63,6 +63,7 @@
     </RadioGroup>
     <EditText
         android:id="@+id/quantity"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Quantity in Kgs"/>
