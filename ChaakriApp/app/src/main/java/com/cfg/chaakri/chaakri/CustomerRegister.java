@@ -24,8 +24,11 @@ EditText username,mobilenumber;
             public void onClick(View view) {
                 gps = new GPSTracker(CustomerRegister.this);
                 if (gps.canGetLocation()) {
-                    latitude = gps.latitude;
-                    longitude = gps.longitude;
+                    latitude = gps.getLatitude();
+                    longitude = gps.getLongitude();
+                }
+                else{
+                    gps.showSettingsAlert();
                 }
                 String user=username.getText().toString();
                 String number=mobilenumber.getText().toString();
