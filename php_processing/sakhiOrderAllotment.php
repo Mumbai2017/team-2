@@ -25,20 +25,25 @@ function getAvailableSakhi()
 	}
 	
 	print_r($arr);
+	getSakhiLocations($arr);
 }
 
-function getSakhiInventoryAvailable($sakhi_id, $inv_id)
+function getSakhiLocations($sakhis)
 {
-	$sql = "SELECT `sakhi_id` FROM `sakhi_Inventory` WHERE `sakhi_id`=".$sakhi_id." AND `inventory_id`=".$inv_id."";
-	$result = mysqli_query($GLOBALS['connection'], $sql);
-	$x=0;
-	
-	if (mysqli_num_rows($result) > 0) 
+	for($i=0;$i<=count($sakhis);$i++)
 	{
-		while($row = mysqli_fetch_assoc($result)) 
+		$sql = "SELECT `id`,`address` FROM `sakhis` WHERE `id`=".$sakhis[$i]."";
+		$result = mysqli_query($GLOBALS['connection'], $sql);
+		$x=0;
+		
+		if (mysqli_num_rows($result) > 0) 
 		{
-			$arr[$x] = $row["id"]; //Sakhi ID
-			$x = $x + 1;
+			while($row = mysqli_fetch_assoc($result)) 
+			{
+				$arr[$x][0] = $row["sakhi_id"]; //Sakhi ID
+				$arr[$x][1] = $row["address"]; //Sakhi Location
+				$x = $x + 1;
+			}
 		}
 	}
 }
