@@ -1,5 +1,6 @@
 package com.cfg.chaakri.chaakri;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
@@ -15,13 +16,13 @@ public class CustomerOrder extends AppCompatActivity {
     RadioGroup type,location;
     EditText quantity,locationtext;
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
-    Button orderbutton;
+    Button orderbutton,buttonFeedback;
     int flag;
     String x="";
     String y="";
     String send="";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order);
         type=(RadioGroup)findViewById(R.id.type);
@@ -149,6 +150,15 @@ public class CustomerOrder extends AppCompatActivity {
                 new OrderAdd(getApplicationContext()).execute(send);
 
 
+            }
+        });
+
+        buttonFeedback = (Button) findViewById(R.id.btnFeedback);
+        buttonFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CustomerOrder.this,TechWeb.class);
+                startActivity(i);
             }
         });
 

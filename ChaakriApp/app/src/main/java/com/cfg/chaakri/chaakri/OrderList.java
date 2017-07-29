@@ -115,7 +115,7 @@ public class OrderList extends Fragment {
             HttpClient httpclient = HttpClientBuilder.create().build();
             HttpPost httppost;
 
-            httppost = new HttpPost("http://stylopolitan.com/chaakri/orders.php?sakhi_phone="+usn);
+            httppost = new HttpPost("http://stylopolitan.com/chaakri/order_listing.php?sakhi_phone="+usn);
 
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
@@ -150,134 +150,7 @@ public class OrderList extends Fragment {
             //   Toast.makeText(getApplicationContext(), " Input reading fail", Toast.LENGTH_SHORT).show();
         }
 
-        //parse json data
-        try
-        {
 
-            Log.e("result","Result string in jSON "+result);
-
-            JSONArray jArray = new JSONArray(result);
-
-
-            // String re=jArray.getString(jArray.length()-1);
-
-
-            TableLayout tv=(TableLayout) view.findViewById(R.id.table2);
-            tv.removeAllViewsInLayout();
-
-            int flag=1;
-
-            for(int i=-1;i<jArray.length();i++)
-
-            {
-
-
-
-
-                TableRow tr=new TableRow(getContext());
-
-                tr.setLayoutParams(new TableLayout.LayoutParams(
-                        TableLayout.LayoutParams.MATCH_PARENT,
-                        TableLayout.LayoutParams.WRAP_CONTENT));
-
-
-
-
-                if(flag==1)
-                {
-
-                    TextView b6=new TextView(getContext());
-                    b6.setPadding(0,0,0,0);
-                    b6.setText("Flavour");
-                    b6.setTextColor(Color.BLUE);
-                    b6.setTextSize(15);
-                    tr.addView(b6);
-
-
-                    TextView b19=new TextView(getContext());
-                    b19.setPadding(40,0, 0, 0);
-                    b19.setTextSize(15);
-                    b19.setText("Quantity");
-                    b19.setTextColor(Color.BLUE);
-                    tr.addView(b19);
-
-
-                    TextView b12=new TextView(getContext());
-                    b12.setPadding(40,0, 0, 0);
-                    b12.setTextSize(15);
-                    b12.setText("Customer Address");
-                    b12.setTextColor(Color.BLUE);
-                    tr.addView(b12);
-
-
-                    tv.addView(tr);
-
-                    final View vline = new View(getContext());
-                    vline.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
-                    vline.setBackgroundColor(Color.BLUE);
-
-
-
-                    tv.addView(vline);
-                    flag=0;
-
-
-                }
-
-                else
-                {
-
-
-
-                    JSONObject json_data = jArray.getJSONObject(i);
-
-
-                    TextView b1=new TextView(getContext());
-                    b1.setPadding(10, 0, 0, 0);
-                    b1.setTextSize(15);
-                    String stime1=json_data.getString("Flavour");
-                   // Eventarr[x] = stime1;
-                   // x++;
-                    b1.setText(stime1);
-                    b1.setTextColor(Color.RED);
-                    tr.addView(b1);
-
-                    TextView b2=new TextView(getContext());
-                    b2.setPadding(40, 0, 0, 0);
-                    String stime2=json_data.getString("Quantity");
-                    b2.setText(stime2);
-                    b2.setTextColor(Color.RED);
-                    b2.setTextSize(15);
-                    tr.addView(b2);
-
-                    TextView b3=new TextView(getContext());
-                    b3.setPadding(40, 0, 0, 0);
-                    String stime3=json_data.getString("Customer Address");
-                    b3.setText(stime3);
-                    b3.setTextColor(Color.RED);
-                    b3.setTextSize(15);
-                    tr.addView(b3);
-
-                    tv.addView(tr);
-
-                    final View vline1 = new View(getContext());
-                    vline1.setLayoutParams(new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, 1));
-                    vline1.setBackgroundColor(Color.WHITE);
-                    tv.addView(vline1);
-
-
-                }
-
-            }
-
-
-
-        }
-        catch(JSONException e)
-        {
-            Log.e("log_tag", "Error parsing data "+e.toString());
-            Toast.makeText(getContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
-        }
 
 
 
