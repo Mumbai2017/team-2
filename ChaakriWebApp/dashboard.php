@@ -41,7 +41,8 @@
                             <a class="nav-link" href="inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Sakhiorders.html" style="color: white;">Sakhi<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="way2sms/sms.php" style="color: white;">Promotion
+                            <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
