@@ -15,30 +15,23 @@ function getMagicSakhi()
 	for($i=0;$i<=count($preFinalSakhis)-1;$i++)
 	{
 		$distance[$i][0] = $preFinalSakhis[$i][0];
-		$distance[$i][1] = GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2]);
-		$dist[$i] = GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2]);
+		$distance[$i][1] = trim(GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2])," km");
+		$dist[$i] = trim(GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2])," km");
 	}
 	
-	rsort($dist);
-	print_r($dist);
-	
-	$sakhi_id = '';
-	
-	for($j=0;$j<=count($distance)-1;$j++)
-	{
-		//echo $distance[$j][1];
-		for($k=0;$k<=count($dist)-1;$k++)
-		{
-			if($distance[$j][1] == $dist[$k])
-			{
-				echo 'yes ';
-				//break;
-			}
+	function cmp($a, $b) {
+		if ($a[1] == $b[1]) {
+			return 0;
 		}
+		return ($a[1] < $b[1]) ? -1 : 1;
 	}
 
-	//print_r($distance);
-	//GetDistance($lat1, $lat2, $long1, $long2)
+	usort($distance, "cmp");
+
+	print_r($distance);
+	
+	echo $distance[0][0];
+	
 }
 
 function getAvailableSakhi()
