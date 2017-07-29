@@ -1,5 +1,6 @@
 package com.cfg.chaakri.chaakri;
 
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class CustomerOrder extends AppCompatActivity {
     EditText quantity;
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
     Button orderbutton;
+    int idx=99;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +35,21 @@ public class CustomerOrder extends AppCompatActivity {
         l1=(RadioButton)findViewById(R.id.currentlocation);
         l2=(RadioButton)findViewById(R.id.otherlocation);
         orderbutton=(Button)findViewById(R.id.orderbutton);
+        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                int radioButtonID = type.getCheckedRadioButtonId();
+                View radioButton = type.findViewById(radioButtonID);
+                idx = type.indexOfChild(radioButton);
+            }
+        });
         orderbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int selectedtype=type.getCheckedRadioButtonId();
-                int selectedlocation=location.getCheckedRadioButtonId();
-                Toast.makeText(CustomerOrder.this,selectedlocation+" "+selectedtype,Toast.LENGTH_SHORT ).show();
+
+                //int selectedtype=type.getCheckedRadioButtonId();
+                //int selectedlocation=location.getCheckedRadioButtonId();
+                Toast.makeText(CustomerOrder.this,idx+"",Toast.LENGTH_SHORT ).show();
             }
         });
 
