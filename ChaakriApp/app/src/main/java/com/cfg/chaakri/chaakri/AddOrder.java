@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 
@@ -30,6 +31,8 @@ public class AddOrder extends Fragment {
 
 
     EditText FlavInp,Quant,CustNum;
+
+    Button done;
 
 
 
@@ -83,6 +86,23 @@ public class AddOrder extends Fragment {
         FlavInp = (EditText) view.findViewById(R.id.editFlav);
         Quant = (EditText) view.findViewById(R.id.editQuan);
         CustNum = (EditText) view.findViewById(R.id.editNumber);
+
+        done = (Button) view.findViewById(R.id.buttonDone);
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String flv = FlavInp.getText().toString();
+                String qnt = Quant.getText().toString();
+                String cnum = CustNum.getText().toString();
+
+                String send = flv + "," + qnt + "," +cnum ;
+
+                new OrderAdd(getContext()).execute(send);
+
+            }
+        });
+
 
 
         return view;
