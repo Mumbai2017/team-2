@@ -115,7 +115,7 @@ public class OrderList extends Fragment {
             HttpClient httpclient = HttpClientBuilder.create().build();
             HttpPost httppost;
 
-            httppost = new HttpPost("http://stylopolitan.com/chaakri/orders.php?username="+usn);
+            httppost = new HttpPost("http://stylopolitan.com/chaakri/orders.php?sakhi_phone="+usn);
 
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
