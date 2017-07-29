@@ -11,12 +11,11 @@ if(isset($_GET['sakhi_phone'])){
   $query = mysqli_query($connection, $sql);
   $i=0;
   $arr = array();
-	echo $sql;
+	
   if (mysqli_num_rows($query) > 0)
   {
     while($row = mysqli_fetch_assoc($query))
     {
-		print_r($row);
       $arr[$i][0] = $row["id"];
       $arr[$i][1] = $row["customer_id"]; //Sakhi Lat
       $arr[$i][2] = $row["quantity"]; //Sakhi Long
