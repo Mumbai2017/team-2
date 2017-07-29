@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class CustomerRegister extends AppCompatActivity {
     GPSTracker gps;
-EditText cusername,cpass;
+EditText cusername,cpass,cname;
     Button registerbutton;
     double latitude, longitude;
     @Override
@@ -17,6 +17,7 @@ EditText cusername,cpass;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_register);
         cusername=(EditText)findViewById(R.id.cusername);
+        cname = (EditText) findViewById(R.id.cname);
         cpass=(EditText)findViewById(R.id.cpass);
         registerbutton=(Button)findViewById(R.id.registerbutton);
         registerbutton.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +34,9 @@ EditText cusername,cpass;
                     Toast.makeText(CustomerRegister.this,"Unable to rtrieve loc",Toast.LENGTH_SHORT).show();
                 }
                 String user=cusername.getText().toString();
+                String nameu = cname.getText().toString();
                 String passw=cpass.getText().toString();
-                String message= user+","+passw+",2,"+latitude+","+longitude;
+                String message= user+","+passw+",2,"+latitude+","+longitude+","+nameu;
 
                 Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT).show();
 

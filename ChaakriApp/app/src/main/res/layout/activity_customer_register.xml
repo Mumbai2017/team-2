@@ -7,6 +7,14 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.cfg.chaakri.chaakri.CustomerRegister">
+
+    <EditText
+        android:id="@+id/cname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_marginBottom="20dp"/>
+
     <EditText
         android:id="@+id/cusername"
         android:layout_width="match_parent"
