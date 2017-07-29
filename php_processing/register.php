@@ -7,7 +7,7 @@ if(isset($_GET["mobile_no"])){
 	$p = $_GET['password'];
 	$user_type = preg_replace('#[^0-2]#i', '', $_GET['user_type']);
 	$sql = "SELECT id FROM users WHERE mobile_no=$mobile_no LIMIT 1";
-  echo $sql;
+
   $query = mysqli_query($connection, $sql);
 	$u_check = mysqli_num_rows($query);
 	if($p == "" || $user_type == "" || $mobile_no == ""){
