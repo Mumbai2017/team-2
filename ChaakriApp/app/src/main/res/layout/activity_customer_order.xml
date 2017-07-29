@@ -74,7 +74,7 @@
             android:id="@+id/currentlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Location"/>
+            android:text="Home Location"/>
         <RadioButton
             android:id="@+id/otherlocation"
             android:layout_width="match_parent"

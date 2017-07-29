@@ -16,6 +16,7 @@ public class CustomerOrder extends AppCompatActivity {
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
     Button orderbutton;
     int idx=99;
+    String x="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,25 +36,38 @@ public class CustomerOrder extends AppCompatActivity {
         l1=(RadioButton)findViewById(R.id.currentlocation);
         l2=(RadioButton)findViewById(R.id.otherlocation);
         orderbutton=(Button)findViewById(R.id.orderbutton);
-        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                int radioButtonID = type.getCheckedRadioButtonId();
-                View radioButton = type.findViewById(radioButtonID);
-                idx = type.indexOfChild(radioButton);
-            }
-        });
-        orderbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //int selectedtype=type.getCheckedRadioButtonId();
-                //int selectedlocation=location.getCheckedRadioButtonId();
-                Toast.makeText(CustomerOrder.this,idx+"",Toast.LENGTH_SHORT ).show();
-            }
-        });
-
-
+        int typeid=type.getCheckedRadioButtonId();
+        switch(typeid)
+        {
+            case (R.id.radiobutton1) :
+                x="1";
+                break;
+            case (R.id.radiobutton2) :
+                x="2";
+                break;
+            case (R.id.radiobutton3) :
+                x="3";
+                break;
+            case (R.id.radiobutton4) :
+                x="4";
+                break;
+            case (R.id.radiobutton5) :
+                x="5";
+                break;
+            case (R.id.radiobutton6) :
+                x="6";
+                break;
+            case (R.id.radiobutton7) :
+                x="7";
+                break;
+            case (R.id.radiobutton8) :
+                x="8";
+                break;
+            case (R.id.radiobutton9) :
+                x="9";
+                break;
+        }
+        Toast.makeText(CustomerOrder.this,x,Toast.LENGTH_SHORT).show();
 
 
     }
