@@ -15,6 +15,8 @@ if(isset($_GET["sakhi_phone"])){
 	$inv_id = preg_replace('#[^0-9]#i', '', $_GET['inv_id']);
 	$price = preg_replace('#[^0-9]#', '', $_GET['price']);
 
+ $price= "10";
+
 	if($quantity == "" || $sakhi_id == "" || $price == "" || $inv_id == ""){
 		echo "missing_values";
     exit();
