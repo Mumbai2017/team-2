@@ -62,7 +62,7 @@
 					}
 					if($_GET['msg']=="illegal")
 					{
-						echo '<div class="alert alert-success text-center">Illegal Access!</div>';
+						echo '<div class="alert alert-danger text-center">Illegal Access!</div>';
 					}
 				}
 				?>
