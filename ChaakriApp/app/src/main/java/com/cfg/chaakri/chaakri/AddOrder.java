@@ -70,7 +70,7 @@ public class AddOrder extends Fragment {
         // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
         // ie we are sending "Fragment 1" as title parameter when fragment1 is activated
         if (mListener != null) {
-            mListener.onFragmentInteraction("Home");
+            mListener.onFragmentInteraction("Add Order");
         }
 
         return view;
@@ -81,7 +81,7 @@ public class AddOrder extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction("Order List");
+            mListener.onFragmentInteraction("Add Order");
         }
     }
 

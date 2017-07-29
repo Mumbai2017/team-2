@@ -5,9 +5,47 @@
     tools:context="com.cfg.chaakri.chaakri.AddOrder">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editFlav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editQuan"
+            android:ems="10"
+            android:hint="Flavour Number"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editQuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editNumber"
+            android:ems="10"
+            android:hint="Quantity"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:hint="Customer Number"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editNumber"
+            android:layout_centerHorizontal="true"
+            android:text="DONE" />
+
+
+    </RelativeLayout>
+
 
 </FrameLayout>
