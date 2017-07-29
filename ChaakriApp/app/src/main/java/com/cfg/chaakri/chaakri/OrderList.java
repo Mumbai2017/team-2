@@ -223,6 +223,12 @@ public class OrderList extends Fragment {
                     b69.setTextColor(Color.BLUE);
                     tr.addView(b69);
 
+                    TextView b69x=new TextView(getContext());
+                    b69x.setPadding(40,0, 0, 0);
+                    b69x.setTextSize(20);
+                    b69x.setText("Delivery Mode");
+                    b69x.setTextColor(Color.BLUE);
+                    tr.addView(b69x);
 
                     tv.addView(tr);
 
@@ -280,9 +286,18 @@ public class OrderList extends Fragment {
                     b66.setTextSize(20);
                     tr.addView(b66);
 
-                    /* Button btn = new Button(getContext());
-                    btn.setText("Edit Status");
-                    btn.setHeight(30); */
+                    TextView b66y=new TextView(getContext());
+                    b66y.setPadding(40, 0, 0, 0);
+                    String stime66y=json_data.getString("delivery_address");
+                    String seti = " ";
+                    if(stime66y.equalsIgnoreCase("1"))
+                        seti = "Pickup";
+                    else if(stime66y.equalsIgnoreCase("0"))
+                        seti = "Delivery";
+                    b66y.setText(seti);
+                    b66y.setTextColor(Color.RED);
+                    b66y.setTextSize(20);
+                    tr.addView(b66y);
 
                     tr.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -290,9 +305,9 @@ public class OrderList extends Fragment {
 
                             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
 
-                            alertDialog.setTitle("Dialog Button");
+                            alertDialog.setTitle("Change Delivery Status");
 
-                            alertDialog.setMessage("This is a three-button dialog!");
+                            alertDialog.setMessage("CLick to alter delivery status");
 
                             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Pick-Up", new DialogInterface.OnClickListener() {
 

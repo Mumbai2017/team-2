@@ -96,7 +96,7 @@ $major_sale = $result['product'];
                        <span class="badge indigo"><h5 style="color: white;">Highest Sold<br>Flavour</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h4 class="card-text" style="color: black;"><?php echo $max_sales;?></h4>
+                       <h4 class="card-text" style="color: black;"><?php echo $major_sale;?> Khakra</h4>
                    </div>
                </div>
                </div>
