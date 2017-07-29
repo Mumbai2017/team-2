@@ -1,4 +1,4 @@
-<?php include('server.php'); 
+<?php include('server.php');
 
 //fetch the records to be update
 if (isset($_GET['edit'])) {
@@ -31,7 +31,7 @@ if (isset($_GET['edit'])) {
     <li><a style="color: white; font-size: 20px;"  href="#">Home</a></li>
     <li><a style="color: white; font-size: 20px;"  href="#">Orders</a></li>
     <li><a style="color: white; font-size: 20px;"  href="#">Inventory</a></li>
-  </ul>  
+  </ul>
   </div>
 </nav>
 
@@ -53,7 +53,7 @@ if (isset($_GET['edit'])) {
 <?php if(isset($_SESSION['msg'])):?>
 	<div class="h3"><?php echo $_SESSION['msg']; unset($_SESSION['msg']) ?></div>
 <?php endif ?>
-	
+
 
 	<table class="table">
 		<thead>
@@ -71,7 +71,7 @@ if (isset($_GET['edit'])) {
 				<td><?php echo $row['kgs']; ?></td>
 				<td><?php echo $row['price']; ?></td>
 				<td>
-				<a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
+				<a href="inventorymanagement.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
 				</td>
 				<td>
 				<a href="server.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
@@ -104,16 +104,16 @@ if (isset($_GET['edit'])) {
 				<input type="text" name="price" class="form-control" value="<?php echo $price; ?>">
 			</div>
 		<div class="input-group">
-			
+
 		<?php if($edit_state==false): ?>
 			<button class="btn btnprimary" type="submit" name="save">Save</button>
 		<?php else: ?>
 			<button class="btn btnprimary" type="update" name="update">Update</button>
 		<?php endif?>
-			
+
 
 		</div>
-			
+
 		</form>
 	</div>
 	</div>
