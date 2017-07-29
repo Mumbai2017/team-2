@@ -6,7 +6,7 @@ if(isset($_GET["mobile_no"])){
 	$mobile_no = preg_replace('#[^0-9]#', '', $_GET['mobile_no']);
 	$p = $_GET['password'];
 	$user_type = preg_replace('#[^0-2]#i', '', $_GET['user_type']);
-	$sql = "SELECT id FROM users WHERE mobile_no='$mobile_no' LIMIT 1";
+	$sql = "SELECT id FROM users WHERE mobile_no=$mobile_no LIMIT 1";
   echo $sql;
   $query = mysqli_query($connection, $sql);
 	$u_check = mysqli_num_rows($query);
@@ -20,14 +20,14 @@ if(isset($_GET["mobile_no"])){
 		$p_hash = md5($p);
 		$name= $_GET['name'];
     $sql = "INSERT INTO users (mobile_no, password, user_type, registration_date)
-		        VALUES('$mobile_no','$p_hash','$user_type',now())";
+		        VALUES($mobile_no,'$p_hash',$user_type,now())";
     echo $sql;
     $query = mysqli_query($connection, $sql);
 		$uid = mysqli_insert_id($connection);
 
     if($user_type == 1 ){
       $availablity = 1;
-  		$sql = "INSERT INTO sakhis (id, name, availablity) VALUES ('$uid','$name','$availablity')";
+  		$sql = "INSERT INTO sakhis (id, name, availablity) VALUES ($uid,'$name',$availablity)";
       echo $sql;
       $query = mysqli_query($connection, $sql);
   	}
@@ -35,7 +35,7 @@ if(isset($_GET["mobile_no"])){
 
       $lat = $_GET['lat'];
       $long = $_GET['lng'];
-  		$sql = "INSERT INTO customers (id, name, availablity, lat, long) VALUES ('$uid','$name','$availablity','$lat', '$lng')";
+  		$sql = "INSERT INTO customers (id, name, availablity, lat, long) VALUES ($uid,'$name',$availablity,$lat, $lng)";
       echo $sql;
       $query = mysqli_query($connection, $sql);
   	}
