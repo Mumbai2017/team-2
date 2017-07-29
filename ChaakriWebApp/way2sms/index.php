@@ -1,33 +1,3 @@
-<?php
-
-	$consumer_key='uH0V118EYgxhY7tM78rfhlMBf';
-	$consumer_secret='O9O3bq5qBCVNAgXuK6ekf08Zqt9Q4BHdVykf1uedJLJGdi0iU5';
-	$access_token='887190134747156480-eWcpBjYp9sZYNUa6Z3xbA6SNr8MrrsN';
-	$access_token_secret='vgF7O2C7AOPvlN89t8Ct3IZV31SqjFRyRiTlBiOABCWc5';
-
-	//Include Library
-	require "autoload.php";
-	use Abraham\TwitterOAuth\TwitterOauth;
-
-	//Connect to API
-	$connection= new TwitterOauth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
-	$content=$connection->get("account/verify_credentials");
-
-if (isset($_POST['tweet'])) {
-
-	$new_status=$connection->post("statuses/update",["status"=>'zzz']);
-}
-
-
-
-	
-
-
-
-
-
-
-?>
 
 
 <!DOCTYPE html>
@@ -92,16 +62,12 @@ if (isset($_POST['tweet'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Send a Tweet!</h1>
+                <h1>Page Content starts here</h1>
                 <hr>
             </div>        
         </div>
 
 
-
-                <form action="" method="post">
-                  <button class="btn btn-default" type="submit" name="tweet">Appreciate</button>
-                </form>
 
 
         <div class="row">
@@ -113,21 +79,28 @@ if (isset($_POST['tweet'])) {
 
                             <!--Header-->
                             <div class="text-xs-center">
-                                <h3>Go Ahead Tweet:</h3>
+                                <h3> Send a Text Message:</h3>
                                 <hr class="mt-2 mb-2">
                             </div>
 
-                            <form action="sendtweet.php" method="">
-							<div class="md-form">
-                                <i class="fa fa-pencil-square-o prefix"></i>
-				                <textarea type="text" id="form76" class="md-textarea" name="message"></textarea>
-				                <label for="form76">Type in the 143 characters</label>
-				            </div>
+                            <!--Body-->
+                            <div class="md-form">
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="form2" class="form-control" name="recepient">
+                                <label for="form2">Recepient</label>
+                            </div>
 
                             <div class="md-form">
-                                <button class="btn btn-primary" type="submit" name="submit">Tweet</button>
+                                <i class="fa fa-envelope prefix"></i>
+                                <input type="text" id="form4" class="form-control" name="message">
+                                <label for="form4">Your Message</label>
                             </div>
-                        </form>
+
+                            <div class="md-form">
+                                <button name="submit" type="submit" class="btn btn-primary">Send</button>
+                            </div>
+
+
                         </div>
             </form>
             </div>
@@ -147,3 +120,17 @@ if (isset($_POST['tweet'])) {
 </body>
 
 </html>
+
+
+<?php 
+
+if (isset($_POST['submit'])) {
+    $recepient=$_POST['recepient'];
+    $message=$_POST['message'];
+    include('way2sms-api.php');
+    sendWay2SMS ( '8097002807' , 'P9243Q' , $recepient ,$message);  
+}
+
+
+
+ ?>
