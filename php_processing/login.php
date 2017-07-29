@@ -11,7 +11,7 @@ if(isset($_POST["mobile_no"])){
 	}
   else {
 	// END FORM DATA ERROR HANDLING
-	$sql = "SELECT id, password FROM users WHERE phone_no='$phone_no' LIMIT 1";
+	$sql = "SELECT id, password FROM users WHERE phone_no=$phone_no LIMIT 1";
   $query = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($query);
 		$db_id = $row[0];
@@ -32,4 +32,3 @@ if(isset($_POST["mobile_no"])){
 	exit();
 }
 ?>
-php
