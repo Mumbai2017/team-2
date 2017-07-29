@@ -1,8 +1,9 @@
 <?php
-include_once('../php_includes/db_conx.')
-$sql = "SELECT *  FROM orders WHERE status = 0";
+include_once('../php_processing/php_includes/db_conx.php');
+$sql = "SELECT *  FROM order WHERE status = 0";
 $query = mysqli_query($connection, $sql);
-$check = mysqli_fetch_assoc($query);
+echo $sql;
+//$check = mysqli_fetch_assoc($query);
 
 ?>
 <!DOCTYPE html>
@@ -90,26 +91,26 @@ $check = mysqli_fetch_assoc($query);
                         </tr>
                     </thead>
                     <tbody>
-                      <?php if(isset($check) && count($check)) : ?>
-                      <?php foreach ($query as $key => $query) : ?>
+                      <?php //if(isset($check) && count($check)) : ?>
+                      <?php foreach ($query as $key => $quer) : ?>
 
                         <tr>
-                            <th scope="row"><?php echo $query['id'];?></th>
-                            <td><?php echo $query['customer_id'];?></td>
-                            <td><?php echo $query['quantity'];?></td>
-                            <td><?php echo $query['inventory_id'];?></td>
-                            <td><?php echo $query['orderTS'];?></td>
-                            <td><?php echo $query['sakhi_id'];?></td>
-                            <td><?php echo $query['delivery_mode'];?></td>
-                            <td><?php echo $query['delivery_address'];?></td>
-                            <td><?php echo $query['delivery_price'];?></td>
+                            <th scope="row"><?php echo $quer['id'];?></th>
+                            <td><?php echo $quer['customer_id'];?></td>
+                            <td><?php echo $quer['quantity'];?></td>
+                            <td><?php echo $quer['inventory_id'];?></td>
+                            <td><?php echo $quer['orderTS'];?></td>
+                            <td><?php echo $quer['sakhi_id'];?></td>
+                            <td><?php echo $quer['delivery_mode'];?></td>
+                            <td><?php echo $quer['delivery_address'];?></td>
+                            <td><?php echo $quer['delivery_price'];?></td>
                         </tr>
                       <?php endforeach; ?>
-                      <?php else : ?>
+                      <?php //else : ?>
                         <div class="alert  alert-warning">
                           <h3>Sorry, no results found! </h3>
                           </div>
-                      <?php endif; ?>
+                      <?php //endif; ?>
 
                     </tbody>
                 </table>
