@@ -25,8 +25,8 @@ EditText cusername,cpass;
 
                 gps = new GPSTracker(CustomerRegister.this);
                 if (gps.canGetLocation()) {
-                    latitude = gps.latitude;
-                    longitude = gps.longitude;
+                    latitude = gps.getLatitude();
+                    longitude = gps.getLongitude();
                 }
                 else
                 {
