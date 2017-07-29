@@ -2,8 +2,6 @@
 header('Access-Control-Allow-Origin: *');
 require_once('php_includes/db_conx.php');
 
-getMagicSakhi();
-
 function getMagicSakhi()
 {
 	$preFinalSakhis = getAvailableSakhi();
@@ -28,9 +26,9 @@ function getMagicSakhi()
 
 	usort($distance, "cmp");
 
-	print_r($distance);
+	//print_r($distance);
 	
-	echo $distance[0][0];
+	return $distance[0][0];
 	
 }
 
