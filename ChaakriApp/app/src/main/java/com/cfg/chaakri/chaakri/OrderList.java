@@ -151,6 +151,149 @@ public class OrderList extends Fragment {
         }
 
 
+        try
+        {
+
+            Log.e("result","Result string in jSON "+result);
+
+            JSONArray jArray = new JSONArray(result);
+
+
+            // String re=jArray.getString(jArray.length()-1);
+
+
+            TableLayout tv=(TableLayout) view.findViewById(R.id.table2);
+            tv.removeAllViewsInLayout();
+
+            int flag=1;
+
+            for(int i=-1;i<jArray.length();i++)
+
+            {
+
+
+
+
+                TableRow tr=new TableRow(getContext());
+
+                tr.setLayoutParams(new TableLayout.LayoutParams(
+                        TableLayout.LayoutParams.MATCH_PARENT,
+                        TableLayout.LayoutParams.WRAP_CONTENT));
+
+
+
+
+                if(flag==1)
+                {
+
+                    TextView b6=new TextView(getContext());
+                    b6.setPadding(0,0,0,0);
+                    b6.setText("ID");
+                    b6.setTextColor(Color.BLUE);
+                    b6.setTextSize(15);
+                    tr.addView(b6);
+
+
+                    TextView b19=new TextView(getContext());
+                    b19.setPadding(40,0, 0, 0);
+                    b19.setTextSize(15);
+                    b19.setText("D");
+                    b19.setTextColor(Color.BLUE);
+                    tr.addView(b19);
+
+
+                    TextView b12=new TextView(getContext());
+                    b12.setPadding(40,0, 0, 0);
+                    b12.setTextSize(15);
+                    b12.setText("Location");
+                    b12.setTextColor(Color.BLUE);
+                    tr.addView(b12);
+
+                    TextView b69=new TextView(getContext());
+                    b69.setPadding(40,0, 0, 0);
+                    b69.setTextSize(15);
+                    b69.setText("Group");
+                    b69.setTextColor(Color.BLUE);
+                    tr.addView(b69);
+
+
+                    tv.addView(tr);
+
+                    final View vline = new View(getContext());
+                    vline.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
+                    vline.setBackgroundColor(Color.BLUE);
+
+
+
+                    tv.addView(vline);
+                    flag=0;
+
+
+                }
+
+                else
+                {
+
+
+
+                    JSONObject json_data = jArray.getJSONObject(i);
+
+
+                    TextView b1=new TextView(getContext());
+                    b1.setPadding(10, 0, 0, 0);
+                    b1.setTextSize(15);
+                    String stime1=json_data.getString("id");
+                    //Eventarr[x] = stime1;
+                    //x++;
+                    b1.setText(stime1);
+                    b1.setTextColor(Color.RED);
+                    tr.addView(b1);
+
+                    TextView b2=new TextView(getContext());
+                    b2.setPadding(40, 0, 0, 0);
+                    String stime2=json_data.getString("inventory_id");
+                    b2.setText(stime2);
+                    b2.setTextColor(Color.RED);
+                    b2.setTextSize(15);
+                    tr.addView(b2);
+
+                    TextView b3=new TextView(getContext());
+                    b3.setPadding(40, 0, 0, 0);
+                    String stime3=json_data.getString("quantity");
+                    b3.setText(stime3);
+                    b3.setTextColor(Color.RED);
+                    b3.setTextSize(15);
+                    tr.addView(b3);
+
+                    TextView b66=new TextView(getContext());
+                    b66.setPadding(40, 0, 0, 0);
+                    String stime66=json_data.getString("delivery_address");
+                    b66.setText(stime66);
+                    b66.setTextColor(Color.RED);
+                    b66.setTextSize(15);
+                    tr.addView(b66);
+
+                    tv.addView(tr);
+
+
+                    final View vline1 = new View(getContext());
+                    vline1.setLayoutParams(new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, 1));
+                    vline1.setBackgroundColor(Color.WHITE);
+                    tv.addView(vline1);
+
+
+                }
+
+            }
+
+
+
+        }
+        catch(JSONException e)
+        {
+            Log.e("log_tag", "Error parsing data "+e.toString());
+            Toast.makeText(getContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
+        }
 
 
 
