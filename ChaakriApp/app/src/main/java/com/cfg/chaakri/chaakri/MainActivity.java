@@ -17,7 +17,7 @@ Button customerloginbutton,sakhiloginbutton;
         customerloginbutton=(Button)findViewById(R.id.customerloginbutton);
         sakhiloginbutton=(Button)findViewById(R.id.sakhiloginbutton);
 
-        SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
+      /*  SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
          String restoredText = prefs.getString("text", null);
         if (restoredText != null) {
             String userlvl = prefs.getString("Userlevel","0"); //0 is the default value.
@@ -30,7 +30,7 @@ Button customerloginbutton,sakhiloginbutton;
                 Intent i = new Intent(MainActivity.this, CustomerOrder.class);
                 startActivity(i);
             }
-        }
+        } */
 
         customerloginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
