@@ -1,10 +1,11 @@
-<?php 	include_once("php_includes/db_conx.php");
+<?php
+include_once("php_includes/db_conx.php");
 
-if(isset($_GET["cust_id"])){
+if(isset($_GET["sakhi_id"])){
 	// CONNECT TO THE DATABASE
 	// GATHER THE GETED DATA INTO LOCAL VARIABLES
 	$quantity = preg_replace('#[^0-9]#', '', $_GET['quantity']);
-	$cust_id = $_GET['cust_id'];
+	$sakhi_id = $_GET['sakhi_id'];
 	$inv_id = preg_replace('#[^0-9]#i', '', $_GET['inv_id']);
 	$price = preg_replace('#[^0-9]#', '', $_GET['price']);
 	$address = mysqli_escape_string($_GET['address']);
