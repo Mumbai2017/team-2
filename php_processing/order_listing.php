@@ -28,9 +28,9 @@ if(isset($_GET['sakhi_phone'])){
       $i++;
 	  */
     }
-
-    $data = json_encode($r);
-    echo $data;
+	header('Content-Type: application/json');
+    print(json_encode($r));
+   // echo $data;
 
   }
 
