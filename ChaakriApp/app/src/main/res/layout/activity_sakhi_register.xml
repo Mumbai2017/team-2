@@ -6,4 +6,43 @@
     android:layout_height="match_parent"
     tools:context="com.cfg.chaakri.chaakri.SakhiRegister">
 
+
+    <EditText
+        android:id="@+id/cnamesakhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_above="@+id/cusernamesakhi"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/cusernamesakhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_above="@+id/cpasssakhi"
+        android:hint="Mobile Number" />
+
+
+    <EditText
+        android:id="@+id/cpasssakhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="Password" />
+
+    <Button
+        android:id="@+id/buttonSakhiRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cpasssakhi"
+        android:layout_centerHorizontal="true"
+        android:text="Register"/>
+
+
 </RelativeLayout>

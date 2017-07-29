@@ -83,7 +83,11 @@ class RegUser extends AsyncTask<String, Void, String> {
             editor.putString("text","YES");
             editor.commit(); */
 
-            Intent i = new Intent(ctx,NavActivitySakhi.class);
+            Intent i = new Intent(ctx,MainActivity.class);
+            if (userlvl.equalsIgnoreCase("1"))
+                i = new Intent(ctx,SakhiLogin.class);
+            else if (userlvl.equalsIgnoreCase("2"))
+                i = new Intent(ctx,CustomerLogin.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
         }

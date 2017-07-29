@@ -16,7 +16,7 @@ if(isset($_GET["cust_id"])){
 	else {
 
 		$name= $_GET['name'];
-    $sql = "INSERT INTO orders (mobile_no, password, user_type, registration_date)
+    $sql = "INSERT INTO orders (cust_id, quantity, inv_id, orderTS, sakhi_id, delivery_mode, address);
 		        VALUES($mobile_no,'$p_hash',$user_type,now())";
     echo $sql;
     $query = mysqli_query($connection, $sql);
