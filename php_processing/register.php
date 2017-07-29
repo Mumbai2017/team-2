@@ -28,7 +28,7 @@ if(isset($_GET["mobile_no"])){
     if($user_type == 1 ){
       $availability = 1;
   		$sql = "INSERT INTO sakhis (id, name, availability) VALUES ($uid,'$name',$availability)";
-      echo $sql;
+      //echo $sql;
       $query = mysqli_query($connection, $sql);
       echo "success";
   	}
