@@ -50,7 +50,7 @@ public class SakhiLogin extends AppCompatActivity {
                     String user = us.getText().toString();
                     String psw = pw.getText().toString();
 
-                    String message = user + "," + psw;
+                    String message = user + "," + psw + ",1";
                     Log.e("check", "message=" + message);
 
                     new CheckLogin(getApplicationContext()).execute(message);

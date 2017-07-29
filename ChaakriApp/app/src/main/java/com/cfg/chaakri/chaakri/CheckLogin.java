@@ -22,7 +22,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 class CheckLogin extends AsyncTask<String, Void, String> {
     Context ctx;
-    String us,pw;
+    String us,pw,userlvl;
 
     public CheckLogin(Context context)
     {
@@ -42,10 +42,12 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
             pw = rec[1];
 
+            userlvl = rec[2];
+
             Log.e("Check", "us=" + us + " pass=" + pw + "ok");
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://xyz.com/Login.php?us=" + us + "&pw=" + pw);
+            request = new HttpGet("http://xyz.com/Login.php?us=" + us + "&pw=" + pw + "&userlvl=" +userlvl);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";
