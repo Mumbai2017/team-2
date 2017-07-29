@@ -17,7 +17,7 @@ if(isset($_GET["mobile_no"])){
 	echo $sql
   	$query = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($query);
-			echo $row[2];
+			echo $row[0];
 		}
 	
 ?>
