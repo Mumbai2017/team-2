@@ -197,7 +197,7 @@ public class OrderList extends Fragment {
                     TextView b19=new TextView(getContext());
                     b19.setPadding(40,0, 0, 0);
                     b19.setTextSize(15);
-                    b19.setText("D");
+                    b19.setText("Flavour");
                     b19.setTextColor(Color.BLUE);
                     tr.addView(b19);
 
@@ -205,14 +205,14 @@ public class OrderList extends Fragment {
                     TextView b12=new TextView(getContext());
                     b12.setPadding(40,0, 0, 0);
                     b12.setTextSize(15);
-                    b12.setText("Location");
+                    b12.setText("Quantity");
                     b12.setTextColor(Color.BLUE);
                     tr.addView(b12);
 
                     TextView b69=new TextView(getContext());
                     b69.setPadding(40,0, 0, 0);
                     b69.setTextSize(15);
-                    b69.setText("Group");
+                    b69.setText("Delivery Address");
                     b69.setTextColor(Color.BLUE);
                     tr.addView(b69);
 
