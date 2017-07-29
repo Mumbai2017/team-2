@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CustomerRegister extends AppCompatActivity {
     GPSTracker gps;
@@ -29,6 +30,7 @@ EditText username,mobilenumber;
                 String user=username.getText().toString();
                 String number=mobilenumber.getText().toString();
                 String message= user+","+number+",2,"+latitude+","+longitude;
+                Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT);
             }
         });
     }
