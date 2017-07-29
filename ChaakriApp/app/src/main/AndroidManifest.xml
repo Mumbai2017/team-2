@@ -23,7 +23,9 @@
             android:name=".NavActivitySakhi"
             android:label="@string/title_activity_nav_sakhi"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CustomerFirst"></activity>
+        <activity android:name=".CustomerFirst" />
+        <activity android:name=".CustomerLogin" />
+        <activity android:name=".CustomerRegister"></activity>
     </application>
 
 </manifest>
