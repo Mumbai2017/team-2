@@ -5,7 +5,8 @@ if(isset($_GET["mobile_no"])){
 	// GATHER THE POSTED DATA INTO LOCAL VARIABLES AND SANITIZE
   $password = $_GET['password'];
 	$p = md5($password);
-	if($e == "" || $p == ""){
+	$m = $_GET["mobile_no"]);
+	if($m == "" || $p == ""){
 		echo "login_failed";
     exit();
 	}
