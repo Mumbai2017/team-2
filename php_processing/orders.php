@@ -1,4 +1,6 @@
-<?php 	include_once("php_includes/db_conx.php");
+<?php
+//ddd
+include_once("php_includes/db_conx.php");
 include_once("sakhiOrderAllotment.php");
 
 if(isset($_GET["cust_phone"])){
