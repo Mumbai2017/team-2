@@ -5,6 +5,20 @@ function getMagicSakhi()
 	
 }
 
+function getAvailableSakhi()
+{
+	$result = $connection->query("SELECT id FROM `sakhis` WHERE `availability`=1");
+
+	if($result->num_rows > 0) 
+	{
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+			$arr[3] = $row["id"]; //Sakhi ID
+		
+		}
+	}
+}
+
 function get_coordinates($address)
 {
     $address = urlencode($address);
