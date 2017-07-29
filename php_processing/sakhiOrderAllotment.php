@@ -24,28 +24,29 @@ function getAvailableSakhi()
 		}
 	}
 	
-	print_r($arr);
+	//print_r($arr);
 	getSakhiLocations($arr);
 }
 
 function getSakhiLocations($sakhis)
 {
-	for($i=0;$i<=count($sakhis);$i++)
+	for($i=0;$i<=count($sakhis)-1;$i++)
 	{
 		$sql = "SELECT `id`,`address` FROM `sakhis` WHERE `id`=".$sakhis[$i]."";
 		$result = mysqli_query($GLOBALS['connection'], $sql);
-		$x=0;
 		
 		if (mysqli_num_rows($result) > 0) 
 		{
 			while($row = mysqli_fetch_assoc($result)) 
 			{
-				$arr[$x][0] = $row["sakhi_id"]; //Sakhi ID
-				$arr[$x][1] = $row["address"]; //Sakhi Location
-				$x = $x + 1;
+				$arr[$i][0] = $row["id"]; //Sakhi ID
+				$arr[$i][1] = $latLong = getCoords($row["address"]);
+				//$arr[$i][1] = $row["address"]; //Sakhi Location
 			}
 		}
 	}
+	
+	print_r($arr);
 }
 
 function getAvailableQuantity($sakhi_id)
@@ -53,9 +54,28 @@ function getAvailableQuantity($sakhi_id)
 	
 }
 
-getAvailableQuantity($sakhi_id);
+
 getAvailableSakhi();
 
+
+function getCoords()
+{
+$Address = urlencode('401 Suprabhat Neelam Nagar Mulund East');
+  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
+  $xml = simplexml_load_file($request_url) or die("url not loading");
+  $status = $xml->status;
+  if ($status=="OK") {
+      $Lat = $xml->result->geometry->location->lat;
+      $Lon = $xml->result->geometry->location->lng;
+      $LatLng = "$Lat,$Lon";
+	  return $LatLng;
+  }
+  else
+  {
+	  return '';
+  }
+}
+  
 function get_coordinates($address)
 {
     $address = urlencode($address);
