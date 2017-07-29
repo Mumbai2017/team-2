@@ -101,6 +101,57 @@ public class OrderList extends Fragment {
         String usn = prefs.getString("Username", "NoUsername");
 
 
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy =
+                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
+
+        String result = null;
+        InputStream is = null;
+
+        try{
+            HttpClient httpclient = HttpClientBuilder.create().build();
+            HttpPost httppost;
+
+            httppost = new HttpPost("http://stylopolitan.com/chaakri/order_listing.php?sakhi_phone="+usn);
+
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            is = entity.getContent();
+
+            //   Log.e("log_tag", "connection success ");
+            //   Toast.makeText(getApplicationContext(), "pass", Toast.LENGTH_SHORT).show();
+        }
+        catch(Exception e)
+        {
+            //   Log.e("log_tag", "Error in http connection "+e.toString());
+            //  Toast.makeText(getApplicationContext(), "Connection fail", Toast.LENGTH_SHORT).show();
+
+        }
+        //convert response to string
+        try
+        {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                sb.append(line + "\n");
+            }
+            is.close();
+
+            result=sb.toString();
+        }
+        catch(Exception e)
+        {
+            //   Log.e("log_tag", "Error converting result "+e.toString());
+            //   Toast.makeText(getApplicationContext(), " Input reading fail", Toast.LENGTH_SHORT).show();
+        }
+
+
+
 
 
 
