@@ -47,7 +47,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
             Log.e("Check", "us=" + us + " pass=" + pw + "ok");
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://xyz.com/Login.php?us=" + us + "&pw=" + pw + "&userlvl=" +userlvl);
+            request = new HttpGet("http://stylopolitan.com/chaakri/login.php?mobile_no=" + us + "&password=" + pw + "&user_level=" +userlvl);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";

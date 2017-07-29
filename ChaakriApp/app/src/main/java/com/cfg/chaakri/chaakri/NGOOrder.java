@@ -1,12 +1,17 @@
 package com.cfg.chaakri.chaakri;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -26,6 +31,10 @@ public class NGOOrder extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    EditText FlavInpNGO,QuantNGO;
+
+    Button doneNGO;
 
     private OnFragmentInteractionListener mListener;
 
@@ -72,6 +81,39 @@ public class NGOOrder extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction("NGO Order");
         }
+
+        FlavInpNGO = (EditText) view.findViewById(R.id.editFlavNGO);
+        QuantNGO = (EditText) view.findViewById(R.id.editQuanNGO);
+
+        doneNGO = (Button) view.findViewById(R.id.buttonDone);
+
+        final String ID,PASS,msg;
+
+        SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
+        String restoredText = prefs.getString("text", null);
+        if (restoredText != null) {
+            ID = prefs.getString("Username", "No name defined");//"No name defined" is the default value.
+            PASS = prefs.getString("Password", "0000"); //0 is the default value.
+            msg = ID + "," + PASS;
+        }
+
+
+
+
+        doneNGO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String flv = FlavInpNGO.getText().toString();
+                String qnt = QuantNGO.getText().toString();
+
+                String send = flv + "," + qnt + "," + ID;
+
+                new OrderAddNGO(getContext()).execute(send);
+
+            }
+        });
+
+
 
         return view;
 
