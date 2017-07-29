@@ -75,7 +75,7 @@ public class NavActivitySakhi extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            // super.onBackPressed();
         }
     }
 
@@ -132,5 +132,7 @@ public class NavActivitySakhi extends AppCompatActivity
     public void onFragmentInteraction(String uri) {
         getSupportActionBar().setTitle(uri);
     }
+
+
 
 }
