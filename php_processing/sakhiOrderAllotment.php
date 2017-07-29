@@ -41,7 +41,10 @@ function getSakhiLocations($sakhis)
 			{
 				$arr[$i][0] = $row["id"]; //Sakhi ID
 				$a = $row["address"];
-				$arr[$i][1] = $latLong = getCoords($a);
+				$latLong = getCoords($a);
+				$latLongSplit = explode(',',$latLong);
+				$arr[$i][1] = $latLongSplit[0]; //Sakhi Lat
+				
 				//$arr[$i][1] = $row["address"]; //Sakhi Location
 			}
 		}
@@ -58,10 +61,8 @@ function getAvailableQuantity($sakhi_id)
 
 getAvailableSakhi();
 
-
 function getCoords($sakhiAddress)
 {
-echo $sakhiAddress;
 $Address = urlencode($sakhiAddress);
   $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
@@ -78,7 +79,7 @@ $Address = urlencode($sakhiAddress);
   }
 }
  
- /*
+ 
 function get_coordinates($address)
 {
     $address = urlencode($address);
@@ -135,5 +136,5 @@ else
     $dist = GetDistance($coordinates1['lat'], $coordinates2['lat'], $coordinates1['long'], $coordinates2['long']);
     echo 'Distance: <b>'.$dist['distance'].'</b><br>Travel time duration: <b>'.$dist['time'].'</b>';
 }
-*/
+
 ?>
