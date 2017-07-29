@@ -1,5 +1,6 @@
 <?php
-
+	include_once("../../php_processing/php_includes/db_conx.php");
+	
 	$consumer_key='uH0V118EYgxhY7tM78rfhlMBf';
 	$consumer_secret='O9O3bq5qBCVNAgXuK6ekf08Zqt9Q4BHdVykf1uedJLJGdi0iU5';
 	$access_token='887190134747156480-eWcpBjYp9sZYNUa6Z3xbA6SNr8MrrsN';
@@ -10,27 +11,19 @@
 	use Abraham\TwitterOAuth\TwitterOauth;
 
 	//Connect to API
-	$connection= new TwitterOauth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
-	$content=$connection->get("account/verify_credentials");
+	$connection1= new TwitterOauth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
+	$content=$connection1->get("account/verify_credentials");
 
 if (isset($_POST['tweet'])) {
 	$message=$_POST['message'];
-	$new_status=$connection->post("statuses/update",["status"=>$message]);
+	$new_status=$connection1->post("statuses/update",["status"=>$message]);
 }
 
 
 if (isset($_POST['appreciate'])) {
 
-	$new_status=$connection->post("statuses/update",["status"=>'appreciation']);
+	$new_status=$connection1->post("statuses/update",["status"=>'appreciation']);
 }
-
-
-	
-
-
-
-
-
 
 ?>
 
@@ -120,13 +113,17 @@ if (isset($_POST['appreciate'])) {
 							<div class="md-form">
                                 <i class="fa fa-pencil-square-o prefix"></i>
 				                <textarea type="text" id="form76" class="md-textarea" name="message"></textarea>
-				                <label for="form76">Type in the 143 characters</label>
+				                <label for="form76">
+								<?php
+									
+								?>
+								</label>
 				            </div>
 
                             <div class="md-form">
                                 <button class="btn btn-primary" type="submit" name="tweet">Tweet</button>
-                                <button class="btn btn-default" type="submit" name="appreciate">Appreciate
-                                </button>
+                                <!--<button class="btn btn-default" type="submit" name="appreciate">Appreciate
+                                </button>-->
                             </div>
 
                         </form>
