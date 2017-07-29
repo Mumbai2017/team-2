@@ -1,26 +1,20 @@
-
-
-
-<?php
-include_once("php_includes/check_login_status.php");
-// If user is already logged in, header that weenis away
-?>
 <?php
 
-if(isset($_POST["email"])){
+if(isset($_POST["mobile_no"])){
 	// CONNECT TO THE DATABASE
 	include_once("php_includes/db_conx.php");
 	// GATHER THE POSTED DATA INTO LOCAL VARIABLES AND SANITIZE
-	$e = mysqli_real_escape_string($connection, $_POST['email']);
+  $password = $_GET['password'];
 	$p = md5($_POST['password']);
 	if($e == "" || $p == ""){
 		echo "login_failed";
     exit();
 	}
   else {
+
 	// END FORM DATA ERROR HANDLING
-		$sql = "SELECT id, username, password FROM users WHERE email='$e' AND activated='1' LIMIT 1";
-        $query = mysqli_query($connection, $sql);
+	$sql = "SELECT id, password FROM users WHERE phone_no='$phone_no' LIMIT 1";
+  $query = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($query);
 		$db_id = $row[0];
 		$db_username = $row[1];
@@ -33,10 +27,6 @@ if(isset($_POST["email"])){
 			$_SESSION['userid'] = $db_id;
 			$_SESSION['username'] = $db_username;
 			$_SESSION['password'] = $db_pass_str;
-			setcookie("id", $db_id, strtotime( '+30 days' ), "/", "", "", TRUE);
-			setcookie("user", $db_username, strtotime( '+30 days' ), "/", "", "", TRUE);
-    		setcookie("pass", $db_pass_str, strtotime( '+30 days' ), "/", "", "", TRUE);
-			// UPDATE THEIR "IP" AND "LASTLOGIN" FIELDS
 			$sql = "UPDATE users SET ip='$ip', lastlogin=now() WHERE username='$db_username' LIMIT 1";
             $query = mysqli_query($connection, $sql);
 			echo $db_username;

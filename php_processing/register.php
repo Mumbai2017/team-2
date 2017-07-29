@@ -1,9 +1,7 @@
-<?php include_once("php_includes/check_login_status.php");?>
-<?php
+<?php 	include_once("php_includes/db_conx.php");
 
 if(isset($_GET["mobile_no"])){
 	// CONNECT TO THE DATABASE
-	include_once("php_includes/db_conx.php");
 	// GATHER THE GETED DATA INTO LOCAL VARIABLES
 	$mobile_no = preg_replace('#[^0-9]#', '', $_GET['mobile_no']);
 	$p = $_GET['password'];
@@ -20,7 +18,7 @@ if(isset($_GET["mobile_no"])){
 	}else {
 		$p_hash = md5($p);
 		$name= $_GET['name'];
-    $sql = "INSERT INTO users (mobile_no, password, user_type, reg_date)
+    $sql = "INSERT INTO users (mobile_no, password, user_type, registration_date)
 		        VALUES('$mobile_no','$p_hash','$user_type',now())";
 		$query = mysqli_query($connection, $sql);
 		$uid = mysqli_insert_id($connection);
@@ -31,12 +29,13 @@ if(isset($_GET["mobile_no"])){
   		$query = mysqli_query($connection, $sql);
   	}
     if($user_type == 2 ){
-      $availablity = 1;
+
       $lat = $_GET['lat'];
-      $long = $_GET['long'];
-  		$sql = "INSERT INTO customers (id, name, availablity, lat, long) VALUES ('$uid','$name','$availablity','$lat', '$long')";
+      $long = $_GET['lng'];
+  		$sql = "INSERT INTO customers (id, name, availablity, lat, long) VALUES ('$uid','$name','$availablity','$lat', '$lng')";
   		$query = mysqli_query($connection, $sql);
   	}
 	exit();
+}
 }
 ?>
