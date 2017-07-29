@@ -143,6 +143,7 @@ public class OrderList extends Fragment {
             is.close();
 
             result=sb.toString();
+
         }
         catch(Exception e)
         {
