@@ -8,7 +8,7 @@ $inventory_price = $_GET['inventory_price'];
 
 $sql = "INSERT INTO inventory(product,quantity,price) values('".$inventory_name."',".$inventory_quantity.",".$inventory_price.")";
 
-if ($con->query($sql) === TRUE)
+if ($connection->query($sql) === TRUE)
 {
 	$url="return.php?data=success";
 	Header("Location: $url");
