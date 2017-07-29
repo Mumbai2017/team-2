@@ -101,7 +101,7 @@ public class OrderList extends Fragment {
         String usn = prefs.getString("Username", "NoUsername");
 
 
-        
+
 
 
         return view;
