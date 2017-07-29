@@ -46,7 +46,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://xyz.com/OrderAdd.php?flv=" + flv + "&pw=" + qnt + "&userlvl=" +cnum);
+            request = new HttpGet("http://stylopolitan.com/chaakri/Orders.php?flv=" + flv + "&pw=" + qnt + "&userlvl=" +cnum);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";
@@ -69,7 +69,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
         Log.e("Result", "Result" + result);
 
-        if (result.trim()!="")
+        if (result.equalsIgnoreCase("sucesss"))
         {
             Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
             Intent i = new Intent(ctx,NavActivitySakhi.class);

@@ -20,11 +20,11 @@ import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 
 import static android.content.Context.MODE_PRIVATE;
 
-class CheckLogin extends AsyncTask<String, Void, String> {
+class OrderNGO extends AsyncTask<String, Void, String> {
     Context ctx;
-    String us,pw,userlvl;
+    String flv,qnt,cnum;
 
-    public CheckLogin(Context context)
+    public OrderNGO(Context context)
     {
         ctx = context;
     }
@@ -38,17 +38,15 @@ class CheckLogin extends AsyncTask<String, Void, String> {
         try {
             String send = message[0];
             String[] rec = send.split(",");
-            us = rec[0];
+            flv = rec[0];
 
-            pw = rec[1];
+            qnt = rec[1];
 
-            userlvl = rec[2];
-
-            Log.e("Check", "us=" + us + " pass=" + pw + "ok");
+            cnum = rec[2];
 
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/login.php?mobile_no=" + us + "&password=" + pw + "&user_type=" +userlvl);
+            request = new HttpGet("http://stylopolitan.com/chaakri/Orders.php?flv=" + flv + "&pw=" + qnt + "&userlvl=" +cnum);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";
@@ -73,19 +71,13 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
         if (result.equalsIgnoreCase("success"))
         {
-            Toast.makeText(ctx,"Login success uslvl="+userlvl,Toast.LENGTH_SHORT).show();
-
-            Intent i = new Intent(ctx,MainActivity.class);
-            if (userlvl.equalsIgnoreCase("1"))
-            i = new Intent(ctx,NavActivitySakhi.class);
-            else if(userlvl.equalsIgnoreCase("2"))
-            i = new Intent(ctx,NavActivitySakhi.class);
-
+            Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(ctx,NavActivitySakhi.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
         }
         else {
-            Toast.makeText(ctx,"Invalid ID or PASSWORD",Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
         }
 
     }

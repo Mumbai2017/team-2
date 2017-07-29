@@ -89,16 +89,6 @@ public class NGOOrder extends Fragment {
 
         final String ID,PASS,msg;
 
-         SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
-        String restoredText = prefs.getString("text", null);
-        if (restoredText != null) {
-            ID = prefs.getString("Username", "No name defined");//"No name defined" is the default value.
-            PASS = prefs.getString("Password", "0000"); //0 is the default value.
-            msg = ID + "," + PASS;
-        }
-
-
-
 
         doneNGO.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,9 +96,9 @@ public class NGOOrder extends Fragment {
                 String flv = FlavInpNGO.getText().toString();
                 String qnt = QuantNGO.getText().toString();
 
-               // String send = flv + "," + qnt + "," + ID;
+                String send = flv + "," + qnt + ",1";
 
-               // new OrderAddNGO(getContext()).execute(send);
+                new OrderNGO(getContext()).execute(send);
 
             }
         });

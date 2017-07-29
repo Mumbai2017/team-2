@@ -18,15 +18,6 @@ EditText editTextUser,editTextPass;
         editTextPass=(EditText)findViewById(R.id.editTextPass);
         button=(Button)findViewById(R.id.button);
 
-        SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
-        String restoredText = prefs.getString("text", null);
-        if (restoredText != null) {
-            String ID = prefs.getString("Username", "No name defined");//"No name defined" is the default value.
-            String PASS = prefs.getString("Password", "0000"); //0 is the default value.
-            String msg = ID + "," + PASS;
-            new CheckLogin(getApplicationContext()).execute(msg);
-        }
-        else {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -38,5 +29,4 @@ EditText editTextUser,editTextPass;
                 }
             });
         }
-    }
 }

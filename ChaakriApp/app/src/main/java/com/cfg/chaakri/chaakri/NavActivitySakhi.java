@@ -1,5 +1,6 @@
 package com.cfg.chaakri.chaakri;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,8 +32,8 @@ import android.view.MenuItem;
 
 public class NavActivitySakhi extends AppCompatActivity
         implements AddOrder.OnFragmentInteractionListener,
-       /* OrderList.OnFragmentInteractionListener,
-        NGOOrder.OnFragmentInteractionListener, */
+        OrderList.OnFragmentInteractionListener,
+        NGOOrder.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
 
     @Override
