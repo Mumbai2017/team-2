@@ -152,5 +152,7 @@ public class CustomerOrder extends AppCompatActivity {
             }
         });
 
+        //buttonFeedback = (Button) findViewById(R.id.BtnFeedback);
+
     }
 }
