@@ -2,9 +2,22 @@
 header('Access-Control-Allow-Origin: *');
 require_once('php_includes/db_conx.php');
 
+getMagicSakhi();
+
 function getMagicSakhi()
 {
+	$preFinalSakhis = getAvailableSakhi();
+	print_r($preFinalSakhis);
 	
+	$distance = array();
+	
+	for($i=0;$i<=count($preFinalSakhis)-1;$i++)
+	{
+		$distance[$i] = GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2]);
+	}
+	
+	print_r($distance);
+	//GetDistance($lat1, $lat2, $long1, $long2)
 }
 
 function getAvailableSakhi()
@@ -25,7 +38,7 @@ function getAvailableSakhi()
 	}
 	
 	//print_r($arr);
-	getSakhiLocations($arr);
+	return getSakhiLocations($arr);
 }
 
 function getSakhiLocations($sakhis)
@@ -44,22 +57,16 @@ function getSakhiLocations($sakhis)
 				$latLong = getCoords($a);
 				$latLongSplit = explode(',',$latLong);
 				$arr[$i][1] = $latLongSplit[0]; //Sakhi Lat
-				
-				//$arr[$i][1] = $row["address"]; //Sakhi Location
+				$arr[$i][2] = $latLongSplit[1]; //Sakhi Long
 			}
 		}
 	}
 	
-	print_r($arr);
-}
-
-function getAvailableQuantity($sakhi_id)
-{
+	//print_r($arr);
 	
+	return $arr;
 }
 
-
-getAvailableSakhi();
 
 function getCoords($sakhiAddress)
 {
@@ -120,10 +127,12 @@ function GetDistance($lat1, $lat2, $long1, $long2)
     $response_a = json_decode($response, true);
     $dist = $response_a['rows'][0]['elements'][0]['distance']['text'];
     $time = $response_a['rows'][0]['elements'][0]['duration']['text'];
-
-    return array('distance' => $dist, 'time' => $time);
+	
+	return $dist;
+    //return array('distance' => $dist, 'time' => $time);
 }
 
+/*
 $coordinates1 = get_coordinates('Suprabhat, Neelam Nagar, Mulund East');
 $coordinates2 = get_coordinates(', Prism Towers, Goregoan, Mumbai');
 
@@ -136,5 +145,5 @@ else
     $dist = GetDistance($coordinates1['lat'], $coordinates2['lat'], $coordinates1['long'], $coordinates2['long']);
     echo 'Distance: <b>'.$dist['distance'].'</b><br>Travel time duration: <b>'.$dist['time'].'</b>';
 }
-
+*/
 ?>
