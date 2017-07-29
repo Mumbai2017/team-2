@@ -7,16 +7,24 @@ getMagicSakhi();
 function getMagicSakhi()
 {
 	$preFinalSakhis = getAvailableSakhi();
-	print_r($preFinalSakhis);
+	//print_r($preFinalSakhis);
 	
 	$distance = array();
 	
 	for($i=0;$i<=count($preFinalSakhis)-1;$i++)
 	{
-		$distance[$i] = GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2]);
+		$distance[$i][0] = $preFinalSakhis[$i][0];
+		$distance[$i][1] = GetDistance('19.045429', $preFinalSakhis[$i][1], '72.888903', $preFinalSakhis[$i][2]);
 	}
 	
-	print_r($distance);
+	/*usort($array, function($a,$b) {
+		if($a->weight === $b->weight) return 0;
+		return ($a->weight < $b->weight) ? -1 : 1;
+	});*/
+
+	//arsort($distance);
+	
+	//print_r($distance);
 	//GetDistance($lat1, $lat2, $long1, $long2)
 }
 
