@@ -1,4 +1,8 @@
+<?php
+include_once('../php_includes/db_conx.')
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,12 +59,12 @@
             <div class="col-md-12">
                 <h1>Pending Orders</h1>
                 <hr>
-            </div>        
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
 
-            </div>        
+            </div>
         </div>
     </div>
 </main>
@@ -97,7 +101,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>        
+            </div>
         </div>
 
 
