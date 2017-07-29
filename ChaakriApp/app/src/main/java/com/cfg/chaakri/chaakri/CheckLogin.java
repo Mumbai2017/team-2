@@ -77,21 +77,6 @@ class CheckLogin extends AsyncTask<String, Void, String> {
             editor.putString("text","YES");
             editor.commit();
 
-            if (android.os.Build.VERSION.SDK_INT > 9) {
-                StrictMode.ThreadPolicy policy =
-                        new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
-            }
-
-            String url = "http://dcshahfamily.esy.es/DateUp.php";
-            HttpClient client = new DefaultHttpClient();
-
-            try {
-                client.execute(new HttpGet(url));
-            } catch(IOException e) {
-                //do something here
-            }
-
             Intent i = new Intent(ctx,NavActivitySakhi.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
