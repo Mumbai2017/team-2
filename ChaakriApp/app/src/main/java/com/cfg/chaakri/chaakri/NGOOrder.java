@@ -89,7 +89,7 @@ public class NGOOrder extends Fragment {
 
         final String ID,PASS,msg;
 
-        SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
+         SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
         String restoredText = prefs.getString("text", null);
         if (restoredText != null) {
             ID = prefs.getString("Username", "No name defined");//"No name defined" is the default value.
@@ -106,9 +106,9 @@ public class NGOOrder extends Fragment {
                 String flv = FlavInpNGO.getText().toString();
                 String qnt = QuantNGO.getText().toString();
 
-                String send = flv + "," + qnt + "," + ID;
+               // String send = flv + "," + qnt + "," + ID;
 
-                new OrderAddNGO(getContext()).execute(send);
+               // new OrderAddNGO(getContext()).execute(send);
 
             }
         });

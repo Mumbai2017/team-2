@@ -70,7 +70,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
         Log.e("Result", "Result" + result);
 
-        if (result.trim()!="")
+        if (result.trim()=="success")
         {
             SharedPreferences.Editor editor = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
             editor.putString("Username", us);
