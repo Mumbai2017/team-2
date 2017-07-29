@@ -34,7 +34,7 @@ if (isset($_GET['edit'])) {
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top" style="margin-bottom: 15px; background-color: #0195BA;">
+<nav class="navbar navbar-toggleable-md navbar-light">
   <div class="container">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -77,12 +77,13 @@ if (isset($_GET['edit'])) {
 <div class="col-md-2"></div>
 <div class="col-md-10">
   <div class="panel-body"><h1>Manage Inventory</h1></div>
+  <br/>
 <?php if(isset($_SESSION['msg'])):?>
 	<div class="h3"><?php echo $_SESSION['msg']; unset($_SESSION['msg']) ?></div>
 <?php endif ?>
 
 
-	<table class="table">
+	<table class="table" style="table-layout: auto;">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -99,8 +100,7 @@ if (isset($_GET['edit'])) {
 				<td><?php echo $row['price']; ?></td>
 				<td>
 				<a href="inventorymanagement.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
-				</td>
-				<td>
+				&nbsp;&nbsp;
 				<a href="server.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>	<?php } ?>
@@ -133,9 +133,9 @@ if (isset($_GET['edit'])) {
 		<div class="input-group">
 
 		<?php if($edit_state==false): ?>
-			<button class="btn btnprimary" type="submit" name="save">Save</button>
+			<button class="btn btn-primary" type="submit" name="save">Save</button>
 		<?php else: ?>
-			<button class="btn btnprimary" type="update" name="update">Update</button>
+			<button class="btn btn-primary" type="update" name="update">Update</button>
 		<?php endif?>
 
 
