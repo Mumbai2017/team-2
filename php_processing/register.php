@@ -5,6 +5,7 @@ if(isset($_GET["mobile_no"])){
 	// GATHER THE GETED DATA INTO LOCAL VARIABLES
 	$mobile_no = preg_replace('#[^0-9]#', '', $_GET['mobile_no']);
 	$p = $_GET['password'];
+	$address = htmlentities($_GET['address']);
 	$user_type = preg_replace('#[^0-2]#i', '', $_GET['user_type']);
 	$sql = "SELECT id FROM users WHERE mobile_no=$mobile_no LIMIT 1";
 
@@ -27,7 +28,7 @@ if(isset($_GET["mobile_no"])){
 
     if($user_type == 1 ){
       $availability = 1;
-  		$sql = "INSERT INTO sakhis (id, name, availability) VALUES ($uid,'$name',$availability)";
+  		$sql = "INSERT INTO sakhis (id, name, availability, address) VALUES ($uid,'$name',$availability, '$address')";
       //echo $sql;
       $query = mysqli_query($connection, $sql);
       echo "success";
@@ -36,7 +37,7 @@ if(isset($_GET["mobile_no"])){
 
       $lat = $_GET['lat'];
       $lng = $_GET['lng'];
-  		$sql = "INSERT INTO customers (id, name, lat, lng) VALUES ($uid,'$name',$lat, $lng)";
+  		$sql = "INSERT INTO customers (id, name, address) VALUES ($uid,'$name','$address')";
       //echo $sql;
       $query = mysqli_query($connection, $sql);
       echo "success";
