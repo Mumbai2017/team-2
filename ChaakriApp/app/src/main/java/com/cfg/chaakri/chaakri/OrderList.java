@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -195,13 +196,13 @@ public class OrderList extends Fragment {
                     b6.setPadding(0,0,0,0);
                     b6.setText("ID");
                     b6.setTextColor(Color.BLUE);
-                    b6.setTextSize(25);
+                    b6.setTextSize(20);
                     tr.addView(b6);
 
 
                     TextView b19=new TextView(getContext());
                     b19.setPadding(40,0, 0, 0);
-                    b19.setTextSize(25);
+                    b19.setTextSize(20);
                     b19.setText("Flavour");
                     b19.setTextColor(Color.BLUE);
                     tr.addView(b19);
@@ -209,14 +210,14 @@ public class OrderList extends Fragment {
 
                     TextView b12=new TextView(getContext());
                     b12.setPadding(40,0, 0, 0);
-                    b12.setTextSize(25);
+                    b12.setTextSize(20);
                     b12.setText("Quantity");
                     b12.setTextColor(Color.BLUE);
                     tr.addView(b12);
 
                     TextView b69=new TextView(getContext());
                     b69.setPadding(40,0, 0, 0);
-                    b69.setTextSize(25);
+                    b69.setTextSize(20);
                     b69.setText("Delivery Address");
                     b69.setTextColor(Color.BLUE);
                     tr.addView(b69);
@@ -246,7 +247,7 @@ public class OrderList extends Fragment {
 
                     TextView b1=new TextView(getContext());
                     b1.setPadding(10, 0, 0, 0);
-                    b1.setTextSize(25);
+                    b1.setTextSize(20);
                     final String stime1=json_data.getString("id");
                     //Eventarr[x] = stime1;
                     //x++;
@@ -259,7 +260,7 @@ public class OrderList extends Fragment {
                     String stime2=json_data.getString("inventory_id");
                     b2.setText(stime2);
                     b2.setTextColor(Color.RED);
-                    b2.setTextSize(25);
+                    b2.setTextSize(20);
                     tr.addView(b2);
 
                     TextView b3=new TextView(getContext());
@@ -267,7 +268,7 @@ public class OrderList extends Fragment {
                     String stime3=json_data.getString("quantity");
                     b3.setText(stime3);
                     b3.setTextColor(Color.RED);
-                    b3.setTextSize(25);
+                    b3.setTextSize(20);
                     tr.addView(b3);
 
                     TextView b66=new TextView(getContext());
@@ -275,9 +276,12 @@ public class OrderList extends Fragment {
                     String stime66=json_data.getString("delivery_address");
                     b66.setText(stime66);
                     b66.setTextColor(Color.RED);
-                    b66.setTextSize(25);
+                    b66.setTextSize(20);
                     tr.addView(b66);
 
+                    /* Button btn = new Button(getContext());
+                    btn.setText("Edit Status");
+                    btn.setHeight(30); */
 
                     tr.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -302,6 +306,7 @@ public class OrderList extends Fragment {
                                         //do something here
                                     }
 
+
                                 } });
 
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Delivery", new DialogInterface.OnClickListener() {
@@ -319,7 +324,7 @@ public class OrderList extends Fragment {
 
                                 }});
 
-                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel", new DialogInterface.OnClickListener() {
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel Order", new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
@@ -334,6 +339,7 @@ public class OrderList extends Fragment {
 
                                 }});
 
+                            alertDialog.show();
                         }
                     });
 
