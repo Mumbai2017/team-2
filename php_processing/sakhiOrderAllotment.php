@@ -27,6 +27,28 @@ function getAvailableSakhi()
 	print_r($arr);
 }
 
+function getSakhiInventoryAvailable($sakhi_id, $inv_id)
+{
+	$sql = "SELECT `sakhi_id` FROM `sakhi_Inventory` WHERE `sakhi_id`=".$sakhi_id." AND `inventory_id`=".$inv_id."";
+	$result = mysqli_query($GLOBALS['connection'], $sql);
+	$x=0;
+	
+	if (mysqli_num_rows($result) > 0) 
+	{
+		while($row = mysqli_fetch_assoc($result)) 
+		{
+			$arr[$x] = $row["id"]; //Sakhi ID
+			$x = $x + 1;
+		}
+	}
+}
+
+function getAvailableQuantity($sakhi_id)
+{
+	
+}
+
+getAvailableQuantity($sakhi_id);
 getAvailableSakhi();
 
 function get_coordinates($address)
