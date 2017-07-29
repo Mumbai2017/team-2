@@ -1,42 +1,32 @@
 <?php
 include_once("php_includes/db_conx.php");
 
-if(isset($_GET["sakhi_id"])){
+if(isset($_GET["sakhi_phone"])){
 	// CONNECT TO THE DATABASE
 	// GATHER THE GETED DATA INTO LOCAL VARIABLES
+	$sql = "SELECT id  FROM users WHERE mobile_no=$m LIMIT 1";
+  $query = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_row($query);
+		$sakhi_id = $row[0];
+
 	$quantity = preg_replace('#[^0-9]#', '', $_GET['quantity']);
 	$sakhi_id = $_GET['sakhi_id'];
 	$inv_id = preg_replace('#[^0-9]#i', '', $_GET['inv_id']);
 	$price = preg_replace('#[^0-9]#', '', $_GET['price']);
 	$address = mysqli_escape_string($_GET['address']);
 
-	if($quantity == "" || $cust_id == "" || $price == "" || $inv_id == ""){
+	if($quantity == "" || $sakhi_id == "" || $price == "" || $inv_id == ""){
 		echo "missing_values";
     exit();
 	}
 	else {
 
-		$name= $_GET['name'];
-    $sql = "INSERT INTO orders (cust_id, quantity, inv_id, orderTS, sakhi_id, delivery_mode, address);
-		        VALUES($mobile_no,'$p_hash',$user_type,now())";
+    $sql = "INSERT INTO ngo_orders (sakhi_id, quantity, inventory_id, time_date, address, price);
+		        VALUES($sakhi_id,$quantity, $inv_id, now(), $address, $price)";
     echo $sql;
     $query = mysqli_query($connection, $sql);
-		$uid = mysqli_insert_id($connection);
 
-    if($user_type == 1 ){
-      $availablity = 1;
-  		$sql = "INSERT INTO sakhis (id, name, availablity) VALUES ($uid,'$name',$availablity)";
-      echo $sql;
-      $query = mysqli_query($connection, $sql);
-  	}
-    if($user_type == 2 ){
 
-      $lat = $_GET['lat'];
-      $lng = $_GET['lng'];
-  		$sql = "INSERT INTO customers (id, name, lat, lng) VALUES ($uid,'$name',$lat, $lng)";
-      echo $sql;
-      $query = mysqli_query($connection, $sql);
-  	}
 	exit();
 }
 }
