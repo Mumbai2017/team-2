@@ -43,7 +43,7 @@ public class SakhiRegister extends AppCompatActivity {
                 while(nameu.contains(" "))
                 {
                     int ind=nameu.indexOf(" ");
-                    nameu = nameu.substring(0,ind)+"."+nameu.substring(ind+1);
+                    nameu = nameu.substring(0,ind)+"_"+nameu.substring(ind+1);
                 }
 
                 String passw=cpasssakhi.getText().toString();
@@ -52,7 +52,7 @@ public class SakhiRegister extends AppCompatActivity {
                 while(addsak.contains(" "))
                 {
                     int ind=addsak.indexOf(" ");
-                    addsak = addsak.substring(0,ind)+"."+addsak.substring(ind+1);
+                    addsak = addsak.substring(0,ind)+"_"+addsak.substring(ind+1);
                 }
 
                 String message= user+","+passw+",1,"+latitudesakhi+","+longitudesakhi+","+nameu+","+addsak;

@@ -41,7 +41,7 @@ EditText cusername,cpass,cname,caddcust;
                 while(nameu.contains(" "))
                 {
                     int ind=nameu.indexOf(" ");
-                    nameu = nameu.substring(0,ind)+"."+nameu.substring(ind+1);
+                    nameu = nameu.substring(0,ind)+"_"+nameu.substring(ind+1);
                 }
 
                 String passw=cpass.getText().toString();
@@ -50,7 +50,7 @@ EditText cusername,cpass,cname,caddcust;
                 while(addrc.contains(" "))
                 {
                     int ind=addrc.indexOf(" ");
-                    addrc = addrc.substring(0,ind)+"."+addrc.substring(ind+1);
+                    addrc = addrc.substring(0,ind)+"_"+addrc.substring(ind+1);
                 }
 
 
