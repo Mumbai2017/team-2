@@ -111,7 +111,7 @@ if (isset($_GET['edit'])) {
 </div>
 
 
-<div class="panel panel-default" style="margin-bottom: 20px;padding-bottom: 20px;">
+<div class="panel panel-default" style="margin-top: -60px;margin-bottom: 10px;padding-bottom: 20px;">
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
@@ -120,15 +120,15 @@ if (isset($_GET['edit'])) {
 		<br><br>
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
+				<input type="text" name="name" class="form-control" placeholder="Product Name" value="<?php echo $name; ?>">
 			</div>
 			<div class="form-group">
 				<label for="kgs">kgs</label>
-				<input type="text" name="kgs" class="form-control" value="<?php echo $kgs; ?>">
+				<input type="text" name="kgs" class="form-control" placeholder="Product Quantity" value="<?php echo $kgs; ?>">
 			</div>
 			<div class="form-group">
 				<label for="price">Price</label>
-				<input type="text" name="price" class="form-control" value="<?php echo $price; ?>">
+				<input type="text" name="price" class="form-control" placeholder="Product Price" value="<?php echo $price; ?>">
 			</div>
 		<div class="input-group">
 
