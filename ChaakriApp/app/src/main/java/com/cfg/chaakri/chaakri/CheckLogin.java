@@ -48,7 +48,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
 
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/login.php?mobile_no=" + us + "&password=" + pw + "&user_level=" +userlvl);
+            request = new HttpGet("http://stylopolitan.com/chaakri/login.php?mobile_no=" + us + "&password=" + pw + "&user_type=" +userlvl);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";

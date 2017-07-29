@@ -25,24 +25,6 @@ public class SakhiLogin extends AppCompatActivity {
         pw = (EditText) findViewById(R.id.editTextPass);
         String usn;
 
-        Intent i = getIntent();
-        if(i.hasExtra("Register")) {
-            usn = i.getStringExtra("Username");
-            noback = 1;
-            us.setText(usn);
-        }
-
-
-
-        SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
-        String restoredText = prefs.getString("text", null);
-        if (restoredText != null) {
-            String ID = prefs.getString("Username", "No name defined");//"No name defined" is the default value.
-            String PASS = prefs.getString("Password","0000"); //0 is the default value.
-            String msg = ID+","+PASS;
-            new CheckLogin(getApplicationContext()).execute(msg);
-        }
-        else {
             b1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -59,7 +41,6 @@ public class SakhiLogin extends AppCompatActivity {
                 }
             });
         }
-    }
 
     @Override
     public void onBackPressed() {
