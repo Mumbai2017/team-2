@@ -10,7 +10,6 @@ if(isset($_GET["sakhi_phone"])){
 		$sakhi_id = $row[0];
 
 	$quantity = preg_replace('#[^0-9]#', '', $_GET['quantity']);
-	$sakhi_id = $_GET['sakhi_id'];
 	$inv_id = preg_replace('#[^0-9]#i', '', $_GET['inv_id']);
 	$price = preg_replace('#[^0-9]#', '', $_GET['price']);
 	$address = mysqli_escape_string($_GET['address']);
