@@ -22,15 +22,20 @@ EditText username,mobilenumber;
         registerbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 gps = new GPSTracker(CustomerRegister.this);
                 if (gps.canGetLocation()) {
                     latitude = gps.latitude;
                     longitude = gps.longitude;
                 }
+                else
+                {
+                    Toast.makeText(CustomerRegister.this,"Unable to rtrieve loc",Toast.LENGTH_SHORT).show();
+                }
                 String user=username.getText().toString();
                 String number=mobilenumber.getText().toString();
                 String message= user+","+number+",2,"+latitude+","+longitude;
-                Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT);
+                Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT).show();
             }
         });
     }
