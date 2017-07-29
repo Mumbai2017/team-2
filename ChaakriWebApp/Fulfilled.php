@@ -1,6 +1,6 @@
 <?php
 include_once('../php_processing/php_includes/db_conx.php');
-$sql = "SELECT *  FROM orders WHERE status = 0";
+$sql = "SELECT *  FROM orders WHERE status = 1";
 $query = mysqli_query($connection, $sql);
 //echo $sql;
 $check = mysqli_fetch_assoc($query);
@@ -13,7 +13,7 @@ $check = mysqli_fetch_assoc($query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Pending Orders</title>
+    <title>Fullfilled Orders</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -60,7 +60,7 @@ $check = mysqli_fetch_assoc($query);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pending Orders</h1>
+                <h1>Fullfilled Orders</h1>
                 <hr>
             </div>
         </div>
@@ -84,7 +84,9 @@ $check = mysqli_fetch_assoc($query);
                             <th>Quantity</th>
                             <th>Inventory id</th>
                             <th>Date</th>
+                            <th>Delivery</th>
                             <th>Sakhi id</th>
+                            <th>Status</th>
                             <th>Delivery Mode</th>
                             <th>Delivery Address</th>
                             <th>Price</th>
@@ -100,6 +102,8 @@ $check = mysqli_fetch_assoc($query);
                             <td><?php echo $quer['quantity'];?></td>
                             <td><?php echo $quer['inventory_id'];?></td>
                             <td><?php echo $quer['orderTS'];?></td>
+                            <td><?php echo $quer['deliveryTS'];?></td>
+
                             <td><?php echo $quer['sakhi_id'];?></td>
                             <td><?php echo $quer['delivery_mode'];?></td>
                             <td><?php echo $quer['delivery_address'];?></td>

@@ -19,7 +19,7 @@ if (isset($_POST['save'])) {
 
 		$query="INSERT INTO info(name,kgs,price) VALUES('$name','$kgs','$price')";
 		mysqli_query($db,$query);
-		$_SESSION['msg']="Kgs Saved";
+		$_SESSION['msg']="Records Saved";
 		header('location:index.php');
 		//redirects to the index page after inserting the data in the database
 		
@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 	echo $name;
 
 	mysqli_query($db,"UPDATE info SET name='$name', kgs='$kgs',price='$price' WHERE id=$id ");
-	$_SESSION['msg']="kgs Updated";
+	$_SESSION['msg']="Records Updated";
 	header('location:index.php');
 
 }
@@ -43,7 +43,7 @@ if (isset($_POST['update'])) {
 if (isset($_GET['del'])) {
 	$id=$_GET['del'];
 	mysqli_query($db,"DELETE FROM info WHERE id=$id");
-	$_SESSION['msg']="Kgs Deleted";
+	$_SESSION['msg']="Records Deleted";
 	header('location:index.php');
 }
 
