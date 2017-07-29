@@ -35,8 +35,6 @@ if(isset($_GET["mobile_no"])){
   	}
     if($user_type == 2 ){
 
-      $lat = $_GET['lat'];
-      $lng = $_GET['lng'];
   		$sql = "INSERT INTO customers (id, name, address) VALUES ($uid,'$name','$address')";
       //echo $sql;
       $query = mysqli_query($connection, $sql);
