@@ -40,7 +40,7 @@ public class SakhiRegister extends AppCompatActivity {
                 String user=cusernamesakhi.getText().toString();
                 String nameu = cnamesakhi.getText().toString();
 
-                while(nameu.contains(" "))
+                 while(nameu.contains(" "))
                 {
                     int ind=nameu.indexOf(" ");
                     nameu = nameu.substring(0,ind)+"_"+nameu.substring(ind+1);
