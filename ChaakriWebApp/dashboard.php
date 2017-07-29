@@ -44,6 +44,9 @@
                             <a class="nav-link" href="way2sms/sms.php" style="color: white;">Promotion
                             <span class="sr-only">(current)</span></a>
                         </li>
+						 <li class="nav-item">
+                            <a class="nav-link" href="sakhiorders.php" style="color: white;">Sakhi Orders<span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
