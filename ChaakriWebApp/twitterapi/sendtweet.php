@@ -5,26 +5,6 @@
 	$consumer_secret='O9O3bq5qBCVNAgXuK6ekf08Zqt9Q4BHdVykf1uedJLJGdi0iU5';
 	$access_token='887190134747156480-eWcpBjYp9sZYNUa6Z3xbA6SNr8MrrsN';
 	$access_token_secret='vgF7O2C7AOPvlN89t8Ct3IZV31SqjFRyRiTlBiOABCWc5';
-
-	//Include Library
-	require "autoload.php";
-	use Abraham\TwitterOAuth\TwitterOauth;
-
-	//Connect to API
-	$connection1= new TwitterOauth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
-	$content=$connection1->get("account/verify_credentials");
-
-if (isset($_POST['tweet'])) {
-	$message=$_POST['message'];
-	$new_status=$connection1->post("statuses/update",["status"=>$message]);
-}
-
-
-if (isset($_POST['appreciate'])) {
-
-	$new_status=$connection1->post("statuses/update",["status"=>'appreciation']);
-}
-
 ?>
 
 
@@ -35,7 +15,7 @@ if (isset($_POST['appreciate'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Send Tweet</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -83,6 +63,31 @@ if (isset($_POST['appreciate'])) {
 <!-- Main -->
 <main class="mt-5">
     <div class="container">
+		
+		<div class="row">
+		<?php
+			//Include Library
+			require "autoload.php";
+			use Abraham\TwitterOAuth\TwitterOauth;
+
+			//Connect to API
+			$connection1= new TwitterOauth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
+			$content=$connection1->get("account/verify_credentials");
+
+			if (isset($_POST['tweet'])) {
+				$message=$_POST['message'];
+				$new_status=$connection1->post("statuses/update",["status"=>$message]);
+				echo '<div class="alert alert-success text-center">Successfully Tweeted!</div>';
+			}
+
+
+			if (isset($_POST['appreciate'])) {
+
+				$new_status=$connection1->post("statuses/update",["status"=>'appreciation']);
+			}
+		?>
+		</div>
+		
         <div class="row">
             <div class="col-md-12">
                 <h1>Send a Tweet!</h1>
