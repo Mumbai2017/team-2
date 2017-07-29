@@ -73,7 +73,7 @@ public class NGOOrder extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_add_order, container, false);
+        View view = inflater.inflate(R.layout.fragment_ngo_order, container, false);
 
 
         // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
@@ -85,9 +85,7 @@ public class NGOOrder extends Fragment {
         FlavInpNGO = (EditText) view.findViewById(R.id.editFlavNGO);
         QuantNGO = (EditText) view.findViewById(R.id.editQuanNGO);
 
-        doneNGO = (Button) view.findViewById(R.id.buttonDone);
-
-        final String ID,PASS,msg;
+        doneNGO = (Button) view.findViewById(R.id.buttonDoneNGO);
 
 
         doneNGO.setOnClickListener(new View.OnClickListener() {
@@ -98,10 +96,7 @@ public class NGOOrder extends Fragment {
                 String username="";
 
                 SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
-                String restoredText = prefs.getString("text", null);
-                if (restoredText != null) {
-                    username = prefs.getString("Username","No user name"); //No user name is the default value.
-                }
+                username = prefs.getString("Username","No user name"); //No user name is the default value.
 
                 String send = flv + "," + qnt + "," + username;
 
@@ -109,8 +104,6 @@ public class NGOOrder extends Fragment {
 
             }
         });
-
-
 
         return view;
 

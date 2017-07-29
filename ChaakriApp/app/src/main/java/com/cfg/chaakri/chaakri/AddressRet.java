@@ -20,11 +20,11 @@ import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 
 import static android.content.Context.MODE_PRIVATE;
 
-class OrderAdd extends AsyncTask<String, Void, String> {
+class AddressRet extends AsyncTask<String, Void, String> {
     Context ctx;
     String flv,qnt,cnum,snum,addr;
 
-    public OrderAdd(Context context)
+    public AddressRet(Context context)
     {
         ctx = context;
     }
@@ -38,22 +38,8 @@ class OrderAdd extends AsyncTask<String, Void, String> {
         try {
             String send = message[0];
 
-            Log.e("Sent txt:",send);
-            String[] rec = send.split(",");
-            flv = rec[0];
-
-            qnt = rec[1];
-
-            cnum = rec[2];
-
-            snum = rec[3];
-
-            addr = rec[4];
-
-            Log.e("rec[4]",rec[4]);
-
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/orders.php?inv_id=" + flv + "&quantity=" + qnt + "&cust_phone=" +cnum+ "&sakhi_phone=" +snum+ "&address=" +addr);
+            request = new HttpGet("http://stylopolitan.com/chaakri/fetchcustaddr.php?mobile_no="+send);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";
@@ -76,26 +62,11 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
         Log.e("Result", "Result" + result);
 
-        SharedPreferences prefs = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE);
-        String lvl = prefs.getString("Userlevel","No level");
+        SharedPreferences.Editor editor = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
+        editor.putString("cAddress",result);
+        editor.commit();
 
 
-        if (result.equalsIgnoreCase("inserted"))
-        {
-            Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(ctx,MainActivity.class);
-            if(lvl.equalsIgnoreCase("1")) {
-                i = new Intent(ctx, NavActivitySakhi.class);
-            }
-            else if(lvl.equalsIgnoreCase("2")) {
-                i = new Intent(ctx,CustomerOrder.class);
-            }
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            ctx.startActivity(i);
-        }
-        else {
-            Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
-        }
 
     }
 }

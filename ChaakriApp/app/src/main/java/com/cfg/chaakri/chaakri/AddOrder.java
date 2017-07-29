@@ -37,9 +37,6 @@ public class AddOrder extends Fragment {
 
     Button done;
 
-
-
-
     private OnFragmentInteractionListener mListener;
 
     public AddOrder() {
@@ -103,7 +100,7 @@ public class AddOrder extends Fragment {
                 String qnt = Quant.getText().toString();
                 String cnum = CustNum.getText().toString();
 
-                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id+"," ;
+                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id+",_" ;
 
                 new OrderAdd(getContext()).execute(send);
 

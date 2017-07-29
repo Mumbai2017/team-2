@@ -109,11 +109,11 @@ public class NavActivitySakhi extends AppCompatActivity
 
         Fragment fragment = null;
 
-        if (id == R.id.nav_orderlist) {
+         if (id == R.id.nav_orderlist) {
             fragment = new OrderList();
-        } else if (id == R.id.nav_addorder) {
+        }  else if (id == R.id.nav_addorder) {
             fragment = new AddOrder();
-        } else if (id == R.id.nav_ngoorder) {
+        }  else if (id == R.id.nav_ngoorder) {
             fragment = new NGOOrder();
         }
 
