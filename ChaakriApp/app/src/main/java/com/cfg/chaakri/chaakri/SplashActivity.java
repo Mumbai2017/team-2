@@ -17,20 +17,27 @@ public class SplashActivity extends AppCompatActivity {
         String restoredText = prefs.getString("text", null);
         if (restoredText != null) {
             String userlvl = prefs.getString("Userlevel","0"); //0 is the default value.
-            if (userlvl == "1") {
+            if (userlvl.equalsIgnoreCase("1")) {
                 Toast.makeText(getApplicationContext(),"Sakhi logged in!",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(SplashActivity.this, NavActivitySakhi.class);
                 startActivity(i);
-            } else if (userlvl == "2") {
+            } else if (userlvl.equalsIgnoreCase("2")) {
                 Toast.makeText(getApplicationContext(),"Customer logged in!",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(SplashActivity.this, CustomerOrder.class);
+                startActivity(i);
+            }
+            else
+            {
+                Intent i = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(i);
             }
         }
         else
         {
             Intent i = new Intent(SplashActivity.this,MainActivity.class);
+            startActivity(i);
         }
+
 
 
 
