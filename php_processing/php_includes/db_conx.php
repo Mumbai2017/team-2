@@ -1,10 +1,14 @@
 <?php
-$connection=mysqli_connect("localhost","root","","social_network");
-// check for connection
-if (mysqli_connect_errno())
-    {
-	echo mysqli_connect_error();
-    exit();
-	}
+define('DBHOST', 'localhost'); //111.118.215.222
+define('DBUSER', 'stylokzt_alpha');
+define('DBPASS', 'sarvaswa');
+define('DBNAME', 'stylokzt_chaakri');
+
+$connection= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+if(!$connection)
+{
+printf("Can't connect to MySQL Server.", mysqli_connect_error());
+exit;
+}
 
 ?>
