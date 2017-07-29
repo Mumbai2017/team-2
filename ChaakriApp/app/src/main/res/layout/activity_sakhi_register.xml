@@ -13,8 +13,17 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_above="@+id/cusernamesakhi"
+        android:layout_above="@+id/caddsakhi"
         android:hint="Name" />
+
+    <EditText
+        android:id="@+id/caddsakhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:hint="Address"
+        android:layout_above="@+id/cusernamesakhi"/>
 
     <EditText
         android:id="@+id/cusernamesakhi"
@@ -43,6 +52,8 @@
         android:layout_below="@+id/cpasssakhi"
         android:layout_centerHorizontal="true"
         android:text="Register"/>
+
+
 
 
 </RelativeLayout>

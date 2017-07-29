@@ -95,8 +95,15 @@ public class NGOOrder extends Fragment {
             public void onClick(View view) {
                 String flv = FlavInpNGO.getText().toString();
                 String qnt = QuantNGO.getText().toString();
+                String username="";
 
-                String send = flv + "," + qnt + ",1";
+                SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
+                String restoredText = prefs.getString("text", null);
+                if (restoredText != null) {
+                    username = prefs.getString("Username","No user name"); //No user name is the default value.
+                }
+
+                String send = flv + "," + qnt + "," + username;
 
                 new OrderNGO(getContext()).execute(send);
 
