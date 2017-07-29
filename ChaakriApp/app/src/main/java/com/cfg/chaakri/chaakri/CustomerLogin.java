@@ -16,6 +16,7 @@ EditText editTextUser,editTextPass;
         setContentView(R.layout.activity_customer_login);
         editTextUser=(EditText)findViewById(R.id.editTextUser);
         editTextPass=(EditText)findViewById(R.id.editTextPass);
+        button=(Button)findViewById(R.id.button);
 
         SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
         String restoredText = prefs.getString("text", null);
