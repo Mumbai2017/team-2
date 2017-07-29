@@ -16,7 +16,7 @@ public class CustomerOrder extends AppCompatActivity {
     EditText quantity,locationtext;
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
     Button orderbutton;
-    int idx=99;
+    int flag;
     String x="";
     String y="";
     String send="";
@@ -115,6 +115,7 @@ public class CustomerOrder extends AppCompatActivity {
                 }
                 if(y.equals("1"))
                 {
+                    flag=1;
                     y+=" "+locationtext.getText().toString();
                 }
 
@@ -122,22 +123,27 @@ public class CustomerOrder extends AppCompatActivity {
                 Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
 
                 SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
-                String cnum = prefs.getString("Username","No username");
+                String cnum = prefs.getString("Username","Nousername");
                 String flv = x;
-                String caddr = prefs.getString("cAddress","No Address");
+                String caddr = prefs.getString("cAddress","NoAddress");
                 String quan = quantity.getText().toString();
-                String snum = "";
+                String snum = "0";
 
                 String send = flv + "," +quan+ "," +cnum+ "," +snum ;
                 if(y.equalsIgnoreCase("0"))
                 {
                     send = send +","+caddr;
                 }
-                else if(y.equalsIgnoreCase("1"))
+                else if(flag==1)
                 {
                     send = send +","+locationtext.getText().toString();
                 }
 
+                while(send.contains(" "))
+                {
+                    int ind=send.indexOf(" ");
+                    send = send.substring(0,ind)+"_"+send.substring(ind+1);
+                }
 
 
                 new OrderAdd(getApplicationContext()).execute(send);

@@ -85,8 +85,10 @@ class CheckLogin extends AsyncTask<String, Void, String> {
             Intent i = new Intent(ctx,MainActivity.class);
             if (userlvl.equalsIgnoreCase("1"))
             i = new Intent(ctx,NavActivitySakhi.class);
-            else if(userlvl.equalsIgnoreCase("2"))
-            i = new Intent(ctx,CustomerOrder.class);
+            else if(userlvl.equalsIgnoreCase("2")) {
+                i = new Intent(ctx, CustomerOrder.class);
+                new AddressRet(ctx).execute(us);
+            }
 
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
