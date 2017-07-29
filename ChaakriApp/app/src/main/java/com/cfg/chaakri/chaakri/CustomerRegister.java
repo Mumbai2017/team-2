@@ -1,5 +1,6 @@
 package com.cfg.chaakri.chaakri;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,6 +56,10 @@ EditText cusername,cpass,cname,caddcust;
 
 
                 String message= user+","+passw+",2,"+latitude+","+longitude+","+nameu+","+addrc;
+
+                SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
+                editor.putString("cAddress", addrc);
+                editor.commit();
 
                 Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT).show();
 

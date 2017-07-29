@@ -22,7 +22,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 class OrderAdd extends AsyncTask<String, Void, String> {
     Context ctx;
-    String flv,qnt,cnum,snum;
+    String flv,qnt,cnum,snum,addr;
 
     public OrderAdd(Context context)
     {
@@ -46,8 +46,10 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
             snum = rec[3];
 
+            addr = rec[4];
+
             httpclient = new DefaultHttpClient();
-            request = new HttpGet("http://stylopolitan.com/chaakri/Orders.php?inv_id=" + flv + "&quantity=" + qnt + "&cust_phone=" +cnum+ "&sakhi_phone=" +snum);
+            request = new HttpGet("http://stylopolitan.com/chaakri/orders.php?inv_id=" + flv + "&quantity=" + qnt + "&cust_phone=" +cnum+ "&sakhi_id=" +snum+ "&address=" +addr);
             response = httpclient.execute(request);
         } catch (Exception e) {
             result = "error1";
@@ -61,7 +63,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
                 result = result + line;
             }
         } catch (Exception e) {
-            result = "error2";
+            result = "Check Internet Connectivity!";
         }
         return result;
     }
@@ -70,10 +72,20 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
         Log.e("Result", "Result" + result);
 
-        if (result.equalsIgnoreCase("sucesss"))
+        SharedPreferences prefs = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE);
+        String lvl = prefs.getString("Userlevel","No level");
+
+
+        if (result.equalsIgnoreCase("inserted"))
         {
             Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(ctx,NavActivitySakhi.class);
+            Intent i = new Intent(ctx,MainActivity.class);
+            if(lvl.equalsIgnoreCase("1")) {
+                i = new Intent(ctx, NavActivitySakhi.class);
+            }
+            else if(lvl.equalsIgnoreCase("2")) {
+                i = new Intent(ctx,CustomerOrder.class);
+            }
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
         }
