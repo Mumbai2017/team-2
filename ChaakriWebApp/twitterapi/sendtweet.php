@@ -32,18 +32,15 @@
     <header>
         <!--Navbar-->
         <nav class="navbar navbar-toggleable-md navbar-light">
-            <div class="container">
+			<div class="container">
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="color: white;">
-                    <strong>Navbar</strong>
+                <a class="navbar-brand" href="../dashboard.php" style="color: white;">
+                    <strong>Chaakri</strong>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../dashboard.php" style="color: white;">Home <span class="sr-only">(current)</span></a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
                         </li>
@@ -51,11 +48,16 @@
                             <a class="nav-link" href="../inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Sakhiorders.html" style="color: white;">Sakhi<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="../way2sms/sms.php" style="color: white;">Promotion
+                            <span class="sr-only">(current)</span></a>
+                        </li>
+						 <li class="nav-item">
+                            <a class="nav-link" href="../sakhiorders.php" style="color: white;">Sakhi Orders<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
+           
         </nav>
         <!--/.Navbar-->
     </header>
