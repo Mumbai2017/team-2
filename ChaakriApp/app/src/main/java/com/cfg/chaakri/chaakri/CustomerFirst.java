@@ -12,6 +12,10 @@ Button buttoncustomerlogin,buttoncustomerregister;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_first);
+
+        buttoncustomerlogin = (Button) findViewById(R.id.buttoncustomerlogin);
+        buttoncustomerregister = (Button) findViewById(R.id.buttoncustomerregister);
+
         buttoncustomerlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
