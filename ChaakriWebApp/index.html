@@ -53,7 +53,19 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-
+				<?php
+				if(isset($_GET['msg']))
+				{
+					if($_GET['msg']=="invalid")
+					{
+						echo '<div class="alert alert-danger text-center">Technical Error: Challan Could Not Be Granted!</div>';
+					}
+					if($_GET['msg']=="illegal")
+					{
+						echo '<div class="alert alert-success text-center">Challan Granted Successfullly.</div>';
+					}
+				}
+				?>
             </div>        
         </div>
     </div>
