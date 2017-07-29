@@ -16,7 +16,8 @@ if(isset($_GET['sakhi_phone'])){
   {
     while($row = mysqli_fetch_assoc($query))
     {
-		$arr=['id'=>$row['id'], 'customer_id'=>$row['customer_id'],'quantity'=>$row['inventory_id'],'timestamp'=>$row['orderTS'],'address'=>$row['delivery_address'],'price'=>$row['price']];
+		$r[]=$row;
+		//$arr=['id'=>$row['id'], 'customer_id'=>$row['customer_id'],'quantity'=>$row['inventory_id'],'timestamp'=>$row['orderTS'],'address'=>$row['delivery_address'],'price'=>$row['price']];
     /* $arr[$i][0] = $row["id"];
       $arr[$i][1] = $row["customer_id"]; //Sakhi Lat
       $arr[$i][2] = $row["quantity"]; //Sakhi Long
@@ -27,9 +28,9 @@ if(isset($_GET['sakhi_phone'])){
       $i++;
 	  */
     }
-
-    $data = json_encode($arr);
-    echo $data;
+	header('Content-Type: application/json');
+    print(json_encode($r));
+   // echo $data;
 
   }
 
