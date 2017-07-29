@@ -7,7 +7,7 @@ $price="";
 $id=0;
 $edit_state=false;
 
-
+//Check
 //making connection to the database
 include_once("../php_processing/php_includes/db_conx.php");
 $db=$connection;
