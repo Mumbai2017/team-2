@@ -62,7 +62,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
                 result = result + line;
             }
         } catch (Exception e) {
-            result = "error2";
+            result = "Check Internet Connectivity!";
         }
         return result;
     }

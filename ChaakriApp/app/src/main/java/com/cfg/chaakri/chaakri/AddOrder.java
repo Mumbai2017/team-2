@@ -103,7 +103,7 @@ public class AddOrder extends Fragment {
                 String qnt = Quant.getText().toString();
                 String cnum = CustNum.getText().toString();
 
-                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id ;
+                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id+"," ;
 
                 new OrderAdd(getContext()).execute(send);
 

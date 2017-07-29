@@ -1,5 +1,6 @@
 package com.cfg.chaakri.chaakri;
 
+import android.content.SharedPreferences;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -117,8 +118,30 @@ public class CustomerOrder extends AppCompatActivity {
                     y+=" "+locationtext.getText().toString();
                 }
 
-                send= x+ " "+quantity.getText().toString()+" "+y;
+                send= x+ ","+quantity.getText().toString()+","+y;
                 Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
+
+                SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
+                String cnum = prefs.getString("Username","No username");
+                String flv = x;
+                String caddr = prefs.getString("cAddress","No Address");
+                String quan = quantity.getText().toString();
+                String snum = "";
+
+                String send = flv + "," +quan+ "," +cnum+ "," +snum ;
+                if(y.equalsIgnoreCase("0"))
+                {
+                    send = send +","+caddr;
+                }
+                else if(y.equalsIgnoreCase("1"))
+                {
+                    send = send +","+locationtext.getText().toString();
+                }
+
+
+
+                new OrderAdd(getApplicationContext()).execute(send);
+
 
             }
         });

@@ -22,7 +22,8 @@ if(isset($_GET["cust_phone"])){
 	  $row = mysqli_fetch_row($query);
 		$address = $row[0];
 		*/
-
+ $price = "10";
+ 
 	if($quantity == "" || $cust_id == "" || $price == "" || $inv_id == ""){
 		echo "missing_values";
     exit();

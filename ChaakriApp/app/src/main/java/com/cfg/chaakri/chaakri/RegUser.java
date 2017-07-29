@@ -68,7 +68,7 @@ class RegUser extends AsyncTask<String, Void, String> {
             }
         } catch (Exception e) {
             Log.e("Exception",e.toString());
-            result = "error2";
+            result = "Check Internet Connectivity!";
         }
         return result;
     }
