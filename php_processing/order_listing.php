@@ -11,6 +11,7 @@ if(isset($_GET['sakhi_phone'])){
   $query = mysqli_query($connection, $sql);
   $i=0;
   $arr = array();
+  $r=array();
 	
   if (mysqli_num_rows($query) > 0)
   {
@@ -29,7 +30,7 @@ if(isset($_GET['sakhi_phone'])){
 	  
     }
 	header('Content-Type: application/json');
-    print_r(json_encode($r));
+    print(json_encode($r));
    // echo $data;
 
   }
