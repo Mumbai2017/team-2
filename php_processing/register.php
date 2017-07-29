@@ -1,39 +1,30 @@
 <?php include_once("php_includes/check_login_status.php");?>
 <?php
 // Ajax calls this NAME CHECK code to execute
-if(isset($_POST["usernamecheck"])){
+if(isset($_POST["mobile_no"])){
 	include_once("php_includes/db_conx.php");
-	$username = preg_replace('#[^a-z0-9]#i', '', $_POST['usernamecheck']);
-	$sql = "SELECT id FROM users WHERE username='$username' LIMIT 1";
+	$mobile_no = preg_replace('#[^a-z0-9]#i', '', $_POST['mobile_no']);
+	$sql = "SELECT id FROM users WHERE mobile_no='$mobile_no' LIMIT 1";
     $query = mysqli_query($connection, $sql);
     $uname_check = mysqli_num_rows($query);
-    if (strlen($username) < 3 || strlen($username) > 16) {
-	    echo '<strong style="color:#F00;">3 - 16 characters please</strong>';
-	    exit();
-    }
-	if (is_numeric($username[0])) {
-	    echo '<strong style="color:#F00;">Usernames must begin with a letter</strong>';
-	    exit();
-    }
+
     if ($uname_check < 1) {
-	    echo '<strong style="color:#009900;">' . $username . ' is OK</strong>';
+	    echo '';
 	    exit();
     } else {
-	    echo '<strong style="color:#F00;">' . $username . ' is taken</strong>';
+	    echo 'already_registered';
 	    exit();
     }
 }
 ?><?php
 // Ajax calls this REGISTRATION code to execute
-if(isset($_POST["u"])){
+if(isset($_POST["mobile_no"])){
 	// CONNECT TO THE DATABASE
 	include_once("php_includes/db_conx.php");
 	// GATHER THE POSTED DATA INTO LOCAL VARIABLES
-	$u = preg_replace('#[^a-z0-9]#i', '', $_POST['u']);
-	$e = mysqli_real_escape_string($connection, $_POST['e']);
-	$p = $_POST['p'];
-	$g = preg_replace('#[^a-z]#', '', $_POST['g']);
-	$c = preg_replace('#[^a-z ]#i', '', $_POST['c']);
+	$mobile_no = preg_replace('#[^0-9]#', '', $_POST['mobile_no']);
+	$p = $_POST['password'];
+	$user_type = preg_replace('#[^a-z ]#i', '', $_POST['user_type']);
 	// GET USER IP ADDRESS
     $ip = preg_replace('#[^0-9.]#', '', getenv('REMOTE_ADDR'));
 	// DUPLICATE DATA CHECKS FOR USERNAME AND EMAIL
