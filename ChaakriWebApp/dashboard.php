@@ -246,6 +246,17 @@ $location_sale_qty = $result['sum(quantity)'];
 				$pending = $row["count(*)"];
 			}
 		}
+		
+		$sql = "SELECT count(*) FROM `orders` where status=1";
+		$result = mysqli_query($connection, $sql);
+
+		if (mysqli_num_rows($result) > 0)
+		{
+			while($row = mysqli_fetch_assoc($result))
+			{
+				$fulfilled = $row["count(*)"];
+			}
+		}
 		?>
 		
 	?>
@@ -255,8 +266,8 @@ $location_sale_qty = $result['sum(quantity)'];
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Fulfilled',     <?php echo $pending;?>],
-          ['Pending',      55],
+          ['Fulfilled Orders',     <?php echo $fulfilled;?>],
+          ['Pending Orders',      <?php echo $pending;?>],
 
         ]);
 
