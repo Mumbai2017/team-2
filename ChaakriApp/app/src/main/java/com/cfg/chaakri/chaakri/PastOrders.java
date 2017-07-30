@@ -131,7 +131,7 @@ public class PastOrders extends AppCompatActivity {
 
                     TextView b6=new TextView(getApplicationContext());
                     b6.setPadding(0,0,0,0);
-                    b6.setText("ID");
+                    b6.setText("");
                     b6.setTextColor(Color.BLUE);
                     b6.setTextSize(20);
                     tr.addView(b6);
