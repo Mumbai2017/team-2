@@ -7,7 +7,7 @@ if(isset($_GET['cust_phone'])){
   $query = mysqli_query($connection, $sql);
   $row = mysqli_fetch_row($query);
   $cust_id = $row[0];
-  $sql = "SELECT *  FROM orders WHERE cust_id = $customer_id AND status = 0";
+  $sql = "SELECT *  FROM orders WHERE customer_id = $cust_id AND status = 0";
   $query = mysqli_query($connection, $sql);
   $i=0;
   $arr = array();
