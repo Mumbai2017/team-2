@@ -13,7 +13,7 @@
             android:paddingLeft="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview">
+            >
             <RadioButton
 
                 android:text="Breakfast"
@@ -78,11 +78,10 @@
             android:id="@+id/editQ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/type"
+            android:layout_below="@id/typek"
             android:ems="10"
             android:hint="Quantity"
             android:layout_marginBottom="10dp"
-
             android:inputType="number"
             android:paddingLeft="10dp"/>
 
@@ -93,7 +92,6 @@
             android:layout_below="@id/editQ"
             android:ems="10"
             android:hint="Customer Number"
-
             android:layout_marginBottom="10dp"
             android:paddingLeft="10dp"
             android:inputType="phone" />
