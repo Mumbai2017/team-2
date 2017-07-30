@@ -1,6 +1,6 @@
 <?php
 include_once('php_includes/db_conx.php');
-include_once('../ChaakriWebApp/way2sms/way2sms-api.php');
+include_once('ChaakriWebApp/way2sms/way2sms-api.php');
 
 if(isset($_GET['order_id'])){
   $status = $_GET['status'];
