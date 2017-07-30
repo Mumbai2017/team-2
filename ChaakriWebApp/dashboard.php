@@ -5,25 +5,33 @@ $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $major_sale = $result['product'];
 
-$sql = "SELECT sum(quantity) FROM `orders` group by inventory_id order by sum(quantity) DESC LIMIT 1";
+$sql = "SELECT count(id),sum(quantity) FROM `orders` group by inventory_id order by sum(quantity) DESC LIMIT 1";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $major_sale_qty = $result['sum(quantity)'];
+$major_sale_count = $result['count(id)'];
 
 $sql = "SELECT name from sakhis where id = (SELECT sakhi_id FROM `orders` where status=1 group by sakhi_id order by sum(quantity) DESC LIMIT 1)";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $sakhi_sale = $result['name'];
 
-$sql = "SELECT sum(quantity) FROM `orders` where status=1 group by sakhi_id order by sum(quantity) DESC LIMIT 1";
+$sql = "SELECT count(id),sum(quantity) FROM `orders` where status=1 group by sakhi_id order by sum(quantity) DESC LIMIT 1";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $sakhi_sale_qty = $result['sum(quantity)'];
+$sakhi_sale_count = $result['count(id)'];
 
-$sql = "SELECT delivery_address FROM `orders` order by max(delivery_address) DESC LIMIT 1";
+$sql = "SELECT delivery_address FROM `orders` order by max(delivery_address) and max(quantity) DESC LIMIT 1";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $location_sale = $result['delivery_address'];
+
+$sql = "SELECT count(id),sum(quantity) FROM `orders` order by max(delivery_address) and max(quantity) DESC LIMIT 1";
+$query = mysqli_query($connection, $sql);
+$result = mysqli_fetch_assoc($query);
+$location_sale_count = $result['count(id)'];
+$location_sale_qty = $result['sum(quantity)'];
 
  ?>
 <!DOCTYPE html>
@@ -106,7 +114,7 @@ $location_sale = $result['delivery_address'];
                        <span class="badge indigo"><h6 style="color: white;">Highest Sold<br>Flavour</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $major_sale;?> Khakra <br/>(<?php echo $major_sale_qty;?> kgs)</h4>
+                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $major_sale;?> Khakra <br/><?php echo $major_sale_qty;?> kgs | <?php echo $major_sale_count;?> orders </h4>
                    </div>
                </div>
                </div>
@@ -121,7 +129,7 @@ $location_sale = $result['delivery_address'];
                        <span class="badge indigo"><h6 style="color: white;">Highest Sales<br>(Sakhi)</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $sakhi_sale;?> <br/>(<?php echo $sakhi_sale_qty;?> kgs)</h2>
+                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $sakhi_sale;?> <br/><?php echo $sakhi_sale_qty;?> kgs | <?php echo $sakhi_sale_count;?> orders </h2>
                    </div>
                </div>
                </div>
@@ -137,7 +145,7 @@ $location_sale = $result['delivery_address'];
                        </span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h6 class="card-text" style="color: black; font-weight: 600;">Andheri</h2>
+                       <h6 class="card-text" style="color: black; font-weight: 600;">Andheri <br/><?php echo $location_sale_qty;?> kgs | <?php echo $location_sale_count;?> orders </h2>
                    </div>
                </div>
                </div>
