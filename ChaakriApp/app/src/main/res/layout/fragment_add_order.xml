@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RadioGroup
-            android:id="@+id/type"
+            android:id="@+id/typek"
             android:paddingLeft="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,51 +17,51 @@
             <RadioButton
 
                 android:text="Breakfast"
-                android:id="@+id/radiobutton1"
+                android:id="@+id/rb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
             <RadioButton
                 android:text="Dahi Bajra Methi"
-                android:id="@+id/radiobutton2"
+                android:id="@+id/rb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
             <RadioButton
                 android:text="Jeera"
-                android:id="@+id/radiobutton3"
+                android:id="@+id/rb3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
             <RadioButton
                 android:text="Khichdi"
-                android:id="@+id/radiobutton4"
+                android:id="@+id/rb4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
                 android:text="Low Calorie"
-                android:id="@+id/radiobutton5"
+                android:id="@+id/rb5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
                 android:text="Methi Masala"
-                android:id="@+id/radiobutton6"
+                android:id="@+id/rb6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
                 android:text="Nachni"
-                android:id="@+id/radiobutton7"
+                android:id="@+id/rb7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
                 android:text="Peppery Oats"
-                android:id="@+id/radiobutton8"
+                android:id="@+id/rb8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
                 android:text="Punjabi Masala"
-                android:id="@+id/radiobutton9"
+                android:id="@+id/rb9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </RadioGroup>
@@ -75,7 +75,7 @@
             android:inputType="number" />-->
 
         <EditText
-            android:id="@+id/editQuan"
+            android:id="@+id/editQ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/type"
@@ -87,10 +87,10 @@
             android:paddingLeft="10dp"/>
 
         <EditText
-            android:id="@+id/editNumber"
+            android:id="@+id/editNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editQuan"
+            android:layout_below="@id/editQ"
             android:ems="10"
             android:hint="Customer Number"
 
@@ -99,10 +99,10 @@
             android:inputType="phone" />
 
         <Button
-            android:id="@+id/buttonDone"
+            android:id="@+id/buttonD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editNumber"
+            android:layout_below="@+id/editNum"
             android:layout_centerHorizontal="true"
             android:text="DONE" />
 

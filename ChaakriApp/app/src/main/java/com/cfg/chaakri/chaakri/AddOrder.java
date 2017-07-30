@@ -89,18 +89,18 @@ public class AddOrder extends Fragment {
         }
 
       //  FlavInp = (EditText) view.findViewById(R.id.editFlav);
-        Quant = (EditText) view.findViewById(R.id.editQuan);
-        CustNum = (EditText) view.findViewById(R.id.editNumber);
-        r1=(RadioButton)view.findViewById(R.id.radiobutton1);
-        r2=(RadioButton)view.findViewById(R.id.radiobutton2);
-        r3=(RadioButton)view.findViewById(R.id.radiobutton3);
-        r4=(RadioButton)view.findViewById(R.id.radiobutton4);
-        r5=(RadioButton)view.findViewById(R.id.radiobutton5);
-        r6=(RadioButton)view.findViewById(R.id.radiobutton6);
-        r7=(RadioButton)view.findViewById(R.id.radiobutton7);
-        r8=(RadioButton)view.findViewById(R.id.radiobutton8);
-        r9=(RadioButton)view.findViewById(R.id.radiobutton9);
-        type=(RadioGroup)view.findViewById(R.id.type);
+        Quant = (EditText) view.findViewById(R.id.editQ);
+        CustNum = (EditText) view.findViewById(R.id.editNum);
+        r1=(RadioButton)view.findViewById(R.id.rb1);
+        r2=(RadioButton)view.findViewById(R.id.rb2);
+        r3=(RadioButton)view.findViewById(R.id.rb3);
+        r4=(RadioButton)view.findViewById(R.id.rb4);
+        r5=(RadioButton)view.findViewById(R.id.rb5);
+        r6=(RadioButton)view.findViewById(R.id.rb6);
+        r7=(RadioButton)view.findViewById(R.id.rb7);
+        r8=(RadioButton)view.findViewById(R.id.rb8);
+        r9=(RadioButton)view.findViewById(R.id.rb9);
+        type=(RadioGroup)view.findViewById(R.id.typek);
 
         SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
         String restoredText = prefs.getString("text", null);
@@ -111,37 +111,37 @@ public class AddOrder extends Fragment {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String flv = FlavInp.getText().toString();
+               // String flv = FlavInp.getText().toString();
                 String qnt = Quant.getText().toString();
                 String cnum = CustNum.getText().toString();
                 int typeid=type.getCheckedRadioButtonId();
                 switch(typeid)
                 {
-                    case (R.id.radiobutton1) :
+                    case (R.id.rb1) :
                         x="1";
                         break;
-                    case (R.id.radiobutton2) :
+                    case (R.id.rb2) :
                         x="2";
                         break;
-                    case (R.id.radiobutton3) :
+                    case (R.id.rb3) :
                         x="3";
                         break;
-                    case (R.id.radiobutton4) :
+                    case (R.id.rb4) :
                         x="4";
                         break;
-                    case (R.id.radiobutton5) :
+                    case (R.id.rb5) :
                         x="5";
                         break;
-                    case (R.id.radiobutton6) :
+                    case (R.id.rb6) :
                         x="6";
                         break;
-                    case (R.id.radiobutton7) :
+                    case (R.id.rb7) :
                         x="7";
                         break;
-                    case (R.id.radiobutton8) :
+                    case (R.id.rb8) :
                         x="8";
                         break;
-                    case (R.id.radiobutton9) :
+                    case (R.id.rb9) :
                         x="9";
                         break;
                 }
