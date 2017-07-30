@@ -20,10 +20,10 @@ $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $sakhi_sale_qty = $result['sum(quantity)'];
 
-$sql = "SELECT product from inventory where id = (SELECT inventory_id FROM `orders` group by inventory_id order by count(*) DESC LIMIT 1)";
+$sql = "SELECT delivery_address FROM `orders` order by max(delivery_address) DESC LIMIT 1";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
-$location_sale = $result['product'];
+$location_sale = $result['delivery_address'];
 
  ?>
 <!DOCTYPE html>
