@@ -1,13 +1,13 @@
 <?php include('server.php');
-
+include_once('../php_processing/php_includes/db_conx.php');
 //fetch the records to be update
 if (isset($_GET['edit'])) {
 	$id=$_GET['edit'];
 	$edit_state=true;
-	$rec=mysqli_query($db,"SELECT * FROM info WHERE id=$id;");
+	$rec=mysqli_query($db,"SELECT * FROM inventory WHERE id=$id;");
 	$record=mysqli_fetch_array($rec);
-	$name=$record['name'];
-	$kgs=$record['kgs'];
+	$name=$record['product'];
+	$kgs=$record['quantity'];
 	$price=$record['price'];
 	$id=$record['id'];
 }
@@ -87,23 +87,38 @@ if (isset($_GET['edit'])) {
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Kgs</th>
+				<th>Quantity</th>
 				<th>Price</th>
 				<th colspan="2">Action</th>
 			</tr>
 		</thead>
+		
 		<tbody>
-		<?php while ($row=mysqli_fetch_array($results)) { ?>
-			<tr>
-				<td><?php echo $row['name']; ?></td>
-				<td><?php echo $row['kgs']; ?></td>
-				<td><?php echo $row['price']; ?></td>
-				<td>
-				<a href="inventorymanagement.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
-				&nbsp;&nbsp;
-				<a href="server.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
-				</td>
-			</tr>	<?php } ?>
+		<?php
+		$sql = "SELECT * FROM inventory";
+		$result = mysqli_query($connection, $sql);
+
+		if (mysqli_num_rows($result) > 0)
+		{
+			while($row = mysqli_fetch_assoc($result))
+			{
+		?>
+        <tr>
+            <td><?php echo $row['product']; ?></td>
+			<td><?php echo $row['quantity']; ?></td>
+			<td><?php echo $row['price']; ?></td>
+			<td>
+			<a href="inventorymanagement.php?edit=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
+			&nbsp;&nbsp;
+			<a href="server.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+			</td>
+        </tr>
+		<?php
+			
+			}
+		}
+		?>
+		
 		</tbody>
 	</table>
 </div>

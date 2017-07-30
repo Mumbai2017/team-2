@@ -19,7 +19,7 @@ if (isset($_POST['save'])) {
 	 	$kgs=$_POST['kgs'];
 	 	$price=$_POST['price'];
 
-		$query="INSERT INTO info(name,kgs,price) VALUES('$name','$kgs','$price')";
+		$query="INSERT INTO inventory(product,quantity,price) VALUES('$name','$kgs','$price')";
 		mysqli_query($db,$query);
 		$_SESSION['msg']="Records Saved";
 		header('location:inventorymanagement.php');
@@ -35,7 +35,7 @@ if (isset($_POST['update'])) {
 	$id=$_POST['id'];
 	echo $name;
 
-	mysqli_query($db,"UPDATE info SET name='$name', kgs='$kgs',price='$price' WHERE id=$id ");
+	mysqli_query($db,"UPDATE inventory SET product='$name', quantity='$kgs',price='$price' WHERE id=$id ");
 	$_SESSION['msg']="Records Updated";
 	header('location:inventorymanagement.php');
 
@@ -44,7 +44,7 @@ if (isset($_POST['update'])) {
 //delete records
 if (isset($_GET['del'])) {
 	$id=$_GET['del'];
-	mysqli_query($db,"DELETE FROM info WHERE id=$id");
+	mysqli_query($db,"DELETE FROM inventory WHERE id=$id");
 	$_SESSION['msg']="Records Deleted";
 	header('location:inventorymanagement.php');
 }
