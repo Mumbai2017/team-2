@@ -12,7 +12,7 @@ import android.widget.EditText;
 public class SakhiLogin extends AppCompatActivity {
 
     Button b1;
-    EditText us,pw;
+    EditText us,pw,tsl;
     int noback=0;
 
     @Override
@@ -23,7 +23,15 @@ public class SakhiLogin extends AppCompatActivity {
         b1 = (Button) findViewById(R.id.button);
         us = (EditText) findViewById(R.id.editTextUser);
         pw = (EditText) findViewById(R.id.editTextPass);
+        tsl = (EditText) findViewById(R.id.timeslot);
+
         String usn;
+
+        String times = tsl.getText().toString();
+        SharedPreferences.Editor editor = getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
+        editor.putString("Timeslot", times);
+        editor.commit();
+
 
             b1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -31,6 +39,7 @@ public class SakhiLogin extends AppCompatActivity {
 
                     String user = us.getText().toString();
                     String psw = pw.getText().toString();
+                    //String times = tsl.getText().toString();
 
                     String message = user + "," + psw + ",1";
                     Log.e("check", "message=" + message);

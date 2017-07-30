@@ -57,7 +57,7 @@ public class PastOrders extends AppCompatActivity {
             HttpClient httpclient = HttpClientBuilder.create().build();
             HttpPost httppost;
 
-            httppost = new HttpPost("http://stylopolitan.com/chaakri/past_orders.php?cust_phone="+usn);
+            httppost = new HttpPost("http://stylopolitan.com/chaakri/custhistory.php?cust_phone="+usn);
 
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
@@ -129,16 +129,9 @@ public class PastOrders extends AppCompatActivity {
                 if(flag==1)
                 {
 
-                    TextView b6=new TextView(getApplicationContext());
-                    b6.setPadding(0,0,0,0);
-                    b6.setText("");
-                    b6.setTextColor(Color.BLUE);
-                    b6.setTextSize(20);
-                    tr.addView(b6);
-
 
                     TextView b19=new TextView(getApplicationContext());
-                    b19.setPadding(40,0, 0, 0);
+                    b19.setPadding(10,0, 0, 0);
                     b19.setTextSize(20);
                     b19.setText("Flavour");
                     b19.setTextColor(Color.BLUE);
@@ -155,14 +148,14 @@ public class PastOrders extends AppCompatActivity {
                     TextView b69=new TextView(getApplicationContext());
                     b69.setPadding(40,0, 0, 0);
                     b69.setTextSize(20);
-                    b69.setText("Delivery Address");
+                    b69.setText("Order Date/Time");
                     b69.setTextColor(Color.BLUE);
                     tr.addView(b69);
 
                     TextView b69x=new TextView(getApplicationContext());
                     b69x.setPadding(40,0, 0, 0);
                     b69x.setTextSize(20);
-                    b69x.setText("Delivery Mode");
+                    b69x.setText("Status");
                     b69x.setTextColor(Color.BLUE);
                     tr.addView(b69x);
 
@@ -191,7 +184,7 @@ public class PastOrders extends AppCompatActivity {
                     TextView b1=new TextView(getApplicationContext());
                     b1.setPadding(10, 0, 0, 0);
                     b1.setTextSize(20);
-                    final String stime1=json_data.getString("id");
+                    final String stime1=json_data.getString("inventory_id");
                     //Eventarr[x] = stime1;
                     //x++;
                     b1.setText(stime1);
@@ -200,7 +193,7 @@ public class PastOrders extends AppCompatActivity {
 
                     TextView b2=new TextView(getApplicationContext());
                     b2.setPadding(40, 0, 0, 0);
-                    String stime2=json_data.getString("inventory_id");
+                    String stime2=json_data.getString("quantity");
                     b2.setText(stime2);
                     b2.setTextColor(Color.RED);
                     b2.setTextSize(20);
@@ -208,28 +201,21 @@ public class PastOrders extends AppCompatActivity {
 
                     TextView b3=new TextView(getApplicationContext());
                     b3.setPadding(40, 0, 0, 0);
-                    String stime3=json_data.getString("quantity");
+                    String stime3=json_data.getString("orderTS");
                     b3.setText(stime3);
                     b3.setTextColor(Color.RED);
                     b3.setTextSize(20);
                     tr.addView(b3);
 
-                    TextView b66=new TextView(getApplicationContext());
-                    b66.setPadding(40, 0, 0, 0);
-                    String stime66=json_data.getString("delivery_address");
-                    b66.setText(stime66);
-                    b66.setTextColor(Color.RED);
-                    b66.setTextSize(20);
-                    tr.addView(b66);
 
                     TextView b66y=new TextView(getApplicationContext());
                     b66y.setPadding(40, 0, 0, 0);
-                    String stime66y=json_data.getString("delivery_mode");
+                    String stime66y=json_data.getString("status");
                     String seti = " ";
                     if(stime66y.equalsIgnoreCase("0"))
-                        seti = "Pickup";
+                        seti = "Not delivered";
                     else if(stime66y.equalsIgnoreCase("1"))
-                        seti = "Delivery";
+                        seti = "Delivered";
                     b66y.setText(seti);
                     b66y.setTextColor(Color.RED);
                     b66y.setTextSize(20);

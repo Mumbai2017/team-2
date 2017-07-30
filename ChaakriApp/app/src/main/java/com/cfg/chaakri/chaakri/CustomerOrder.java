@@ -16,7 +16,7 @@ public class CustomerOrder extends AppCompatActivity {
     RadioGroup type,location;
     EditText quantity,locationtext;
     RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9,l1,l2;
-    Button orderbutton,buttonFeedback;
+    Button orderbutton;
     int flag;
     String x="";
     String y="";
@@ -153,14 +153,6 @@ public class CustomerOrder extends AppCompatActivity {
             }
         });
 
-        buttonFeedback = (Button) findViewById(R.id.btnFeedback);
-        buttonFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(CustomerOrder.this,TechWeb.class);
-                startActivity(i);
-            }
-        });
 
     }
 }
