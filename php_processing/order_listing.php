@@ -12,7 +12,7 @@ if(isset($_GET['sakhi_phone'])){
   $i=0;
   $arr = array();
   $r=array();
-	
+
   if (mysqli_num_rows($query) > 0)
   {
     while($row = mysqli_fetch_array($query))
@@ -27,7 +27,7 @@ if(isset($_GET['sakhi_phone'])){
       $arr[$i][5] = $row["delivery_address"];
       $arr[$i][6] = $row["price"]; */
       $i++;
-	  
+
     }
 	header('Content-Type: application/json');
     print(json_encode($r));

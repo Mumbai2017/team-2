@@ -159,7 +159,7 @@ else
 }
 */
 
-function getnewsakhi_oncancel( $old_sakhi)
+function getnewsakhi_oncancel( $lmt)
 {
 	$preFinalSakhis = getAvailableSakhi();
 	//print_r($preFinalSakhis);
@@ -183,18 +183,10 @@ function getnewsakhi_oncancel( $old_sakhi)
 
 	usort($distance, "cmp");
 
-	removeElementWithValue($array, $key, $value)
 
-	return $distance[0][0];
+
+	return $distance[1][0];
 
 }
 
-function removeElementWithValue($array, $key, $value){
-     foreach($array as $subKey => $subArray){
-          if($subArray[$key] == $value){
-               unset($array[$subKey]);
-          }
-     }
-     return $array;
-}
 ?>
