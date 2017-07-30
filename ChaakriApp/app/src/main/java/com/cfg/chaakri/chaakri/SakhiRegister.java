@@ -57,7 +57,7 @@ public class SakhiRegister extends AppCompatActivity {
 
                 String message= user+","+passw+",1,"+latitudesakhi+","+longitudesakhi+","+nameu+","+addsak;
 
-                Toast.makeText(SakhiRegister.this,message,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(SakhiRegister.this,message,Toast.LENGTH_SHORT).show();
 
                 new RegUser(getApplicationContext()).execute(message);
 

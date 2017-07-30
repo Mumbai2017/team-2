@@ -99,7 +99,7 @@ class RegUser extends AsyncTask<String, Void, String> {
 
         }
         else {
-            Toast.makeText(ctx,"Unable to register",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(ctx,"Unable to register",Toast.LENGTH_LONG).show();
         }
 
     }

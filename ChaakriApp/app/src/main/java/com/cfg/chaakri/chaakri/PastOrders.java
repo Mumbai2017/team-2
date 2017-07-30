@@ -243,7 +243,7 @@ public class PastOrders extends AppCompatActivity {
         catch(JSONException e)
         {
             Log.e("log_tag", "Error parsing data "+e.toString());
-            Toast.makeText(this, "JsonArray fail", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "JsonArray fail", Toast.LENGTH_SHORT).show();
         }
 
 

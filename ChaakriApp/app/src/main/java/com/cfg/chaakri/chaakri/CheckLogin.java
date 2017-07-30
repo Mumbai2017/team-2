@@ -73,7 +73,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
 
         if (result.equalsIgnoreCase("success"))
         {
-            Toast.makeText(ctx,"Login success uslvl="+userlvl,Toast.LENGTH_SHORT).show();
+            // Toast.makeText(ctx,"Login success uslvl="+userlvl,Toast.LENGTH_SHORT).show();
 
             SharedPreferences.Editor editor = ctx.getSharedPreferences("LoginPref", MODE_PRIVATE).edit();
             editor.putString("Username", us);
@@ -94,7 +94,7 @@ class CheckLogin extends AsyncTask<String, Void, String> {
             ctx.startActivity(i);
         }
         else {
-            Toast.makeText(ctx,"Invalid ID or PASSWORD",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(ctx,"Invalid ID or PASSWORD",Toast.LENGTH_LONG).show();
         }
 
     }

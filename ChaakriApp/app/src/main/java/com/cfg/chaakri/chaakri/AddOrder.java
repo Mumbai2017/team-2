@@ -1,6 +1,7 @@
 package com.cfg.chaakri.chaakri;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -89,6 +90,8 @@ public class AddOrder extends Fragment {
         }
 
       //  FlavInp = (EditText) view.findViewById(R.id.editFlav);
+        Button xyz;
+
         Quant = (EditText) view.findViewById(R.id.editQ);
         CustNum = (EditText) view.findViewById(R.id.editNum);
         r1=(RadioButton)view.findViewById(R.id.rb1);
@@ -155,7 +158,13 @@ public class AddOrder extends Fragment {
             }
         });
 
-
+        xyz = (Button) view.findViewById(R.id.buttonrecomm);
+        xyz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),RecomActivity.class);
+            }
+        });
 
         return view;
 

@@ -82,7 +82,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
 
         if (result.equalsIgnoreCase("inserted"))
         {
-            Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
             Intent i = new Intent(ctx,MainActivity.class);
             if(lvl.equalsIgnoreCase("1")) {
                 i = new Intent(ctx, NavActivitySakhi.class);
@@ -94,7 +94,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
             ctx.startActivity(i);
         }
         else {
-            Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
         }
 
     }

@@ -121,7 +121,7 @@ public class CustomerOrder extends AppCompatActivity {
                 }
 
                 send= x+ ","+quantity.getText().toString()+","+y;
-                Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(CustomerOrder.this,send,Toast.LENGTH_SHORT).show();
 
                 SharedPreferences prefs = getSharedPreferences("LoginPref", MODE_PRIVATE);
                 String cnum = prefs.getString("Username","Nousername");

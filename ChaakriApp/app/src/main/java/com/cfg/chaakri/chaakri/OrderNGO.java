@@ -71,13 +71,13 @@ class OrderNGO extends AsyncTask<String, Void, String> {
 
         if (result.equalsIgnoreCase("success"))
         {
-            Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(ctx,"Order Added Successfully!",Toast.LENGTH_SHORT).show();
             Intent i = new Intent(ctx,NavActivitySakhi.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
         }
         else {
-            Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(ctx,"Unable to add order!",Toast.LENGTH_LONG).show();
         }
 
     }

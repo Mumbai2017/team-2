@@ -61,7 +61,7 @@ EditText cusername,cpass,cname,caddcust;
                 editor.putString("cAddress", addrc);
                 editor.commit();
 
-                Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(CustomerRegister.this,message,Toast.LENGTH_SHORT).show();
 
                 new RegUser(getApplicationContext()).execute(message);
 

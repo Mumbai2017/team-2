@@ -104,6 +104,14 @@
             android:layout_centerHorizontal="true"
             android:text="DONE" />
 
+        <Button
+            android:id="@+id/buttonrecomm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:text="Recommendations" />
+
 
     </RelativeLayout>
 

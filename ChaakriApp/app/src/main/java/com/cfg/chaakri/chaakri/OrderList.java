@@ -318,7 +318,7 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    Toast.makeText(getContext(),stime1+" Pickup",Toast.LENGTH_SHORT).show();
+                                  //  Toast.makeText(getContext(),stime1+" Pickup",Toast.LENGTH_SHORT).show();
 
                                     String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=pickup&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
@@ -337,7 +337,7 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    Toast.makeText(getContext(),stime1+" Delivery",Toast.LENGTH_SHORT).show();
+                                 //   Toast.makeText(getContext(),stime1+" Delivery",Toast.LENGTH_SHORT).show();
 
                                     String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=delivery&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
@@ -354,7 +354,7 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    Toast.makeText(getContext(),stime1+" Cancel",Toast.LENGTH_SHORT).show();
+                                //    Toast.makeText(getContext(),stime1+" Cancel",Toast.LENGTH_SHORT).show();
 
                                     String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=cancel&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
@@ -395,7 +395,7 @@ public class OrderList extends Fragment {
         catch(JSONException e)
         {
             Log.e("log_tag", "Error parsing data "+e.toString());
-            Toast.makeText(getContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(getContext(), "JsonArray fail", Toast.LENGTH_SHORT).show();
         }
 
 
