@@ -288,11 +288,11 @@ public class OrderList extends Fragment {
 
                     TextView b66y=new TextView(getContext());
                     b66y.setPadding(40, 0, 0, 0);
-                    String stime66y=json_data.getString("delivery_address");
+                    String stime66y=json_data.getString("delivery_mode");
                     String seti = " ";
-                    if(stime66y.equalsIgnoreCase("1"))
+                    if(stime66y.equalsIgnoreCase("0"))
                         seti = "Pickup";
-                    else if(stime66y.equalsIgnoreCase("0"))
+                    else if(stime66y.equalsIgnoreCase("1"))
                         seti = "Delivery";
                     b66y.setText(seti);
                     b66y.setTextColor(Color.RED);
