@@ -7,7 +7,7 @@ if(isset($_GET["cust_phone"])){
 	$m = $_GET["cust_phone"];
 	$sql = "SELECT id  FROM users WHERE mobile_no=$m LIMIT 1";
   $query = mysqli_query($connection, $sql);
-	echo $sql;
+	//echo $sql;
   $row = mysqli_fetch_row($query);
 	$cust_id = $row[0];
 	$quantity = preg_replace('#[^0-9]#', '', $_GET['quantity']);
@@ -47,7 +47,7 @@ if(isset($_GET["cust_phone"])){
 	else {
     $sql = "INSERT INTO orders (customer_id, quantity, inventory_id, orderTS, sakhi_id,  delivery_address, price)
 		        VALUES($cust_id, $quantity, $inv_id, now(), $sakhi_id, '$address', $price)";
-    echo $sql;
+    //echo $sql;
     $query = mysqli_query($connection, $sql);
 		if($query)
 			echo "inserted";
