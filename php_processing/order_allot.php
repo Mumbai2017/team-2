@@ -46,7 +46,7 @@ if(isset($_GET['order_id'])){
        $sakhi_id = getnewsakhi_oncancel($limit);
        $sql = "UPDATE `orders` SET `sakhi_id`= $sakhi_id WHERE id = $order_id";
        $query = mysqli_query($connection, $sql);
-       
+
     }
     else{
       $sql = "UPDATE `orders` SET `sakhi_id`= 100 WHERE id = $order_id";
@@ -58,8 +58,7 @@ if(isset($_GET['order_id'])){
 
     }
 
-   $sql = "UPDATE `orders` SET `sakhi_id`= 0 WHERE id = $order_id";
-   $query = mysqli_query($connection, $sql);
+
  }
 
 

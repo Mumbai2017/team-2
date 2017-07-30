@@ -182,8 +182,8 @@ function getnewsakhi_oncancel( $lmt)
 	}
 
 	usort($distance, "cmp");
-	//return $distance[$lmt][0];
-	return 48;
+	return $distance[$lmt][0];
+
 }
 
 ?>
