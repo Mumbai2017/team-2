@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,7 @@ public class AddOrder extends Fragment {
             mListener.onFragmentInteraction("Add Order");
         }
 
-        FlavInp = (EditText) view.findViewById(R.id.editFlav);
+      //  FlavInp = (EditText) view.findViewById(R.id.editFlav);
         Quant = (EditText) view.findViewById(R.id.editQuan);
         CustNum = (EditText) view.findViewById(R.id.editNumber);
         r1=(RadioButton)view.findViewById(R.id.radiobutton1);
@@ -146,6 +147,8 @@ public class AddOrder extends Fragment {
                 }
 
                 String send = x + "," + qnt + "," +cnum+ "," +sakhi_id+",_" ;
+
+                Log.e("ChkSend:",send);
 
                 new OrderAdd(getContext()).execute(send);
 
