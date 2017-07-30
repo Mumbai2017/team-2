@@ -297,7 +297,7 @@ $location_sale_qty = $result['sum(quantity)'];
         ]);
 
         var options = {
-          title: 'Company Performance',
+          title: 'Chaakri Mahila Gruh Udyog Performance',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -312,19 +312,29 @@ $location_sale_qty = $result['sum(quantity)'];
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
-
+	
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Khakra', 'Kg'],
-          ['Jeera', 1000],
-          ['Khichdi', 1170],
-          ['Peppery Oats', 660],
-          ['Punjabi masala', 1030]
+          ['Locations', 'Kg'],
+		  <?php 
+		  $sql = "SELECT o.delivery_address, sum(o.quantity) FROM orders o, inventory i where o.inventory_id=i.id group by inventory_id";
+			$result = mysqli_query($connection, $sql);
+
+			if (mysqli_num_rows($result) > 0)
+			{
+				while($row = mysqli_fetch_assoc($result))
+				{
+					echo "['".$row["delivery_address"]."',".$row["sum(o.quantity)"]."],";
+			?>
+         
+		  <?php }
+			}
+		  ?>
         ]);
 
         var options = {
           chart: {
-            title: 'Khakra Sales',
+            title: 'Khakra Sales vs Locations',
             subtitle: 'No. of Kgs Sold',
           },
           bars: 'horizontal' // Required for Material Bar Charts.
