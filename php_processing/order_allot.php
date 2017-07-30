@@ -11,14 +11,15 @@ if(isset($_GET['order_id'])){
   $query = mysqli_query($connection, $sql);
   $row = mysqli_fetch_row($query);
   $customer_id = $row[0];
-  $sql = "SELECT mobile  FROM users WHERE id = $customer_id  LIMIT 1";
+  $sql = "SELECT mobile_no  FROM users WHERE id = $customer_id  LIMIT 1";
+  echo $sql;
   $query = mysqli_query($connection, $sql);
   $row = mysqli_fetch_row($query);
   $mobile_no = $row[0];
 
 
   if($status == "pickup"){
-  $sql = "UPDATE `orders` SET `delivery_mode`= 0 WHERE id = $order_id";
+  $sql = "UPDATE `orders` SET `delivery_mode`= 1 WHERE id = $order_id";
   $query = mysqli_query($connection, $sql);
   $msg = "Your will have to pickup your order from this destination : "
   if($query)
@@ -26,7 +27,7 @@ if(isset($_GET['order_id'])){
   }
 
   if($status == "delivery"){
-  $sql = "UPDATE `orders` SET `delivery_mode`= 1 WHERE id = $order_id";
+  $sql = "UPDATE `orders` SET `delivery_mode`= 0 WHERE id = $order_id";
   $query = mysqli_query($connection, $sql);
   $msg = "Your order will soon be delivered on to your registered address."
   if($query)
@@ -34,8 +35,12 @@ if(isset($_GET['order_id'])){
  }
 
  if($status == "cancel"){
- $sql = "UPDATE `orders` SET `delivery_mode`= 0 WHERE id = $order_id";
- $query = mysqli_query($connection, $sql);
+
+   include_once("sakhiOrderAllotment.php");
+
+
+   $sql = "UPDATE `orders` SET `sakhi_id`= 0 WHERE id = $order_id";
+   $query = mysqli_query($connection, $sql);
  }
 
 
