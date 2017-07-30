@@ -95,7 +95,7 @@ if (isset($_GET['edit'])) {
 		
 		<tbody>
 		<?php
-		$sql = "SELECT * FROM ngo_orders";
+		$sql = "SELECT * FROM inventory";
 		$result = mysqli_query($connection, $sql);
 
 		if (mysqli_num_rows($result) > 0)
@@ -137,7 +137,7 @@ if (isset($_GET['edit'])) {
 				<input type="text" name="name" class="form-control" placeholder="Product Name" value="<?php echo $name; ?>">
 			</div>
 			<div class="form-group">
-				<label for="kgs">kgs</label>
+				<label for="kgs">Quantity</label>
 				<input type="text" name="kgs" class="form-control" placeholder="Product Quantity" value="<?php echo $kgs; ?>">
 			</div>
 			<div class="form-group">
