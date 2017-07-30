@@ -184,36 +184,31 @@ $location_sale_qty = $result['sum(quantity)'];
         <tr>
             <th>#</th>
             <th>Name</th>
+			<th>Quantity (kgs)</th>
             <th>Sales</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row"><i class="fa fa-user"></i></th>
-            <td>Name</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <th scope="row"><i class="fa fa-user"></i></th>
-            <td>Name</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <th scope="row"><i class="fa fa-user"></i></th>
-            <td>Name</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <th scope="row"><i class="fa fa-user"></i></th>
-            <td>Name</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <th scope="row"><i class="fa fa-user"></i></th>
-            <td>Name</td>
-            <td>1000</td>
-        </tr>
+		<?php
+		$sql = "SELECT o.sakhi_id, s.name as sname, sum(o.quantity), (40*sum(o.quantity)) FROM orders o, sakhis s where o.status=1 and o.sakhi_id=s.id group by o.sakhi_id order by sum(o.quantity) DESC LIMIT 5";
+		$result = mysqli_query($connection, $sql);
 
+		if (mysqli_num_rows($result) > 0)
+		{
+			while($row = mysqli_fetch_assoc($result))
+			{
+		?>
+        <tr>
+            <th scope="row"><i class="fa fa-user"></i></th>
+            <td><?php echo $row["sname"]; ?></td>
+			<td><?php echo $row["sum(o.quantity)"]; ?></td>
+			<td><?php echo '₹'.$row["(40*sum(o.quantity))"]; ?></td>
+        </tr>
+		<?php
+			
+			}
+		}
+		?>
     </tbody>
 </table>
       </div>
