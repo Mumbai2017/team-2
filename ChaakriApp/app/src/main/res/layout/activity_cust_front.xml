@@ -11,14 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttontechsup"
-        android:text="Place Order" />
+        android:text="Place Order"
+        android:layout_marginBottom="20dp"
+        android:textSize="15sp"
+        />
 
     <Button
         android:id="@+id/buttontechsup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:textSize="15sp"
         android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
         android:text="Tech Support" />
 
     <Button
@@ -26,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttontechsup"
+        android:textSize="15sp"
         android:text="Past Orders" />
 
 </RelativeLayout>

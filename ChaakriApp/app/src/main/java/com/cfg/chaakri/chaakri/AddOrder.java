@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -31,7 +33,9 @@ public class AddOrder extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    RadioButton r1,r2,r3,r4,r5,r6,r7,r8,r9;
+    RadioGroup type;
+    String x;
 
     EditText FlavInp,Quant,CustNum;
 
@@ -86,6 +90,16 @@ public class AddOrder extends Fragment {
         FlavInp = (EditText) view.findViewById(R.id.editFlav);
         Quant = (EditText) view.findViewById(R.id.editQuan);
         CustNum = (EditText) view.findViewById(R.id.editNumber);
+        r1=(RadioButton)view.findViewById(R.id.radiobutton1);
+        r2=(RadioButton)view.findViewById(R.id.radiobutton2);
+        r3=(RadioButton)view.findViewById(R.id.radiobutton3);
+        r4=(RadioButton)view.findViewById(R.id.radiobutton4);
+        r5=(RadioButton)view.findViewById(R.id.radiobutton5);
+        r6=(RadioButton)view.findViewById(R.id.radiobutton6);
+        r7=(RadioButton)view.findViewById(R.id.radiobutton7);
+        r8=(RadioButton)view.findViewById(R.id.radiobutton8);
+        r9=(RadioButton)view.findViewById(R.id.radiobutton9);
+        type=(RadioGroup)view.findViewById(R.id.type);
 
         SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
         String restoredText = prefs.getString("text", null);
@@ -99,8 +113,39 @@ public class AddOrder extends Fragment {
                 String flv = FlavInp.getText().toString();
                 String qnt = Quant.getText().toString();
                 String cnum = CustNum.getText().toString();
+                int typeid=type.getCheckedRadioButtonId();
+                switch(typeid)
+                {
+                    case (R.id.radiobutton1) :
+                        x="1";
+                        break;
+                    case (R.id.radiobutton2) :
+                        x="2";
+                        break;
+                    case (R.id.radiobutton3) :
+                        x="3";
+                        break;
+                    case (R.id.radiobutton4) :
+                        x="4";
+                        break;
+                    case (R.id.radiobutton5) :
+                        x="5";
+                        break;
+                    case (R.id.radiobutton6) :
+                        x="6";
+                        break;
+                    case (R.id.radiobutton7) :
+                        x="7";
+                        break;
+                    case (R.id.radiobutton8) :
+                        x="8";
+                        break;
+                    case (R.id.radiobutton9) :
+                        x="9";
+                        break;
+                }
 
-                String send = flv + "," + qnt + "," +cnum+ "," +sakhi_id+",_" ;
+                String send = x + "," + qnt + "," +cnum+ "," +sakhi_id+",_" ;
 
                 new OrderAdd(getContext()).execute(send);
 
