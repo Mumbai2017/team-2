@@ -103,10 +103,10 @@ $location_sale = $result['product'];
                <div class="card-block">
                <div class="row">
                    <div class="col-md-6">
-                       <span class="badge indigo"><h5 style="color: white;">Highest Sold<br>Flavour</h5></span>
+                       <span class="badge indigo"><h6 style="color: white;">Highest Sold<br>Flavour</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h4 class="card-text" style="color: black;"><?php echo $major_sale;?> Khakra (<?php echo $major_sale_qty;?> kgs)</h4>
+                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $major_sale;?> Khakra <br/>(<?php echo $major_sale_qty;?> kgs)</h4>
                    </div>
                </div>
                </div>
@@ -118,10 +118,10 @@ $location_sale = $result['product'];
                <div class="card-block">
                <div class="row">
                    <div class="col-md-6">
-                       <span class="badge indigo"><h5 style="color: white;">Highest Sales<br>(Sakhi)</h5></span>
+                       <span class="badge indigo"><h6 style="color: white;">Highest Sales<br>(Sakhi)</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h2 class="card-text" style="color: black;"><?php echo $sakhi_sale;?> (<?php echo $sakhi_sale_qty;?> kgs)</h2>
+                       <h6 class="card-text" style="color: black; font-weight: 600;"><?php echo $sakhi_sale;?> <br/>(<?php echo $sakhi_sale_qty;?> kgs)</h2>
                    </div>
                </div>
                </div>
@@ -133,11 +133,11 @@ $location_sale = $result['product'];
                <div class="card-block">
                <div class="row">
                    <div class="col-md-6">
-                       <span class="badge indigo"><h5 style="color: white;">Highest Sales<br>(Location)</h5>
+                       <span class="badge indigo"><h6 style="color: white;">Highest Sales<br>(Location)</h5>
                        </span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h2 class="card-text">Andheri</h2>
+                       <h6 class="card-text" style="color: black; font-weight: 600;">Andheri</h2>
                    </div>
                </div>
                </div>
