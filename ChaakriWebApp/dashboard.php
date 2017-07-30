@@ -289,11 +289,11 @@ $location_sale_qty = $result['sum(quantity)'];
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Jeera', 'Khichdi','Nachni'],
-          ['2004',  1000,      400, 700],
-          ['2005',  1170,      460, 1010],
-          ['2006',  660,       1120, 800],
-          ['2007',  1030,      540, 450]
+          ['Year', 'Breakfast Khakhra', 'Khichdi','Nachni','Methi Masala'],
+          ['2014',  200,      300, 700, 810],
+          ['2015',  170,      460, 910, 300],
+          ['2016',  460,       720, 800, 700],
+          ['2017',  230,      140, 450,600]
         ]);
 
         var options = {
