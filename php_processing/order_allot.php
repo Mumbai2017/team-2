@@ -15,13 +15,14 @@ if(isset($_GET['order_id'])){
   echo $sql;
   $query = mysqli_query($connection, $sql);
   $row = mysqli_fetch_row($query);
-  $mobile_no = $row[0];
+  $phone_no = $row[0];
+  echo $phone_no;
 
 
   if($status == "pickup"){
   $sql = "UPDATE `orders` SET `delivery_mode`= 1 WHERE id = $order_id";
   $query = mysqli_query($connection, $sql);
-  $msg = "Your will have to pickup your order from this destination : "
+  $msg = "Your will have to pickup your order from this destination : ";
   if($query)
     sendWay2SMS('8097002807', 'P9243Q', $phone_no, $msg);
   }
@@ -29,7 +30,7 @@ if(isset($_GET['order_id'])){
   if($status == "delivery"){
   $sql = "UPDATE `orders` SET `delivery_mode`= 0 WHERE id = $order_id";
   $query = mysqli_query($connection, $sql);
-  $msg = "Your order will soon be delivered on to your registered address."
+  $msg = "Your order will soon be delivered on to your registered address.";
   if($query)
     sendWay2SMS('8097002807', 'P9243Q', $phone_no, $msg);
  }
