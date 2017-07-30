@@ -106,7 +106,7 @@ public class AddOrder extends Fragment {
         String restoredText = prefs.getString("text", null);
         final String sakhi_id = prefs.getString("Username","No id");
 
-        done = (Button) view.findViewById(R.id.buttonDone);
+        done = (Button) view.findViewById(R.id.buttonD);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
