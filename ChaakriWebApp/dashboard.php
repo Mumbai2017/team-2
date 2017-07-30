@@ -5,6 +5,11 @@ $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
 $major_sale = $result['product'];
 
+$sql = "SELECT sum(quantity) FROM `orders` group by inventory_id order by sum(quantity) DESC LIMIT 1";
+$query = mysqli_query($connection, $sql);
+$result = mysqli_fetch_assoc($query);
+$major_sale_qty = $result['sum(quantity)'];
+
 $sql = "SELECT name from sakhis where id = (SELECT sakhi_id FROM `orders` where status=1 group by sakhi_id order by sum(quantity) DESC LIMIT 1)";
 $query = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($query);
@@ -101,7 +106,7 @@ $location_sale = $result['product'];
                        <span class="badge indigo"><h5 style="color: white;">Highest Sold<br>Flavour</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h4 class="card-text" style="color: black;"><?php echo $major_sale;?> Khakra</h4>
+                       <h4 class="card-text" style="color: black;"><?php echo $major_sale;?> Khakra (<?php echo $major_sale_qty;?> kgs)</h4>
                    </div>
                </div>
                </div>
@@ -116,7 +121,7 @@ $location_sale = $result['product'];
                        <span class="badge indigo"><h5 style="color: white;">Highest Sales<br>(Sakhi)</h5></span>
                    </div>
                    <div class="col-md-6 text-right">
-                       <h2 class="card-text"><?php echo $sakhi_sale;?></h2>
+                       <h2 class="card-text" style="color: black;"><?php echo $sakhi_sale;?> (<?php echo $sakhi_sale_qty;?> kgs)</h2>
                    </div>
                </div>
                </div>
