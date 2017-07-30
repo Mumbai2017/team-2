@@ -13,8 +13,7 @@ if(isset($_GET['cust_phone'])){
   $arr = array();
   $r=array();
 	
-  if (mysqli_num_rows($query) > 0)
-  {
+ 
     while($row = mysqli_fetch_array($query))
     {
 		$r[$i]=$row;
@@ -33,7 +32,6 @@ if(isset($_GET['cust_phone'])){
     print(json_encode($r));
    // echo $data;
 
-  }
 
 }
 ?>
