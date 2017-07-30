@@ -84,11 +84,11 @@ $check = mysqli_fetch_assoc($query);
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Customer id</th>
+                            <th>Customer ID</th>
                             <th>Quantity</th>
-                            <th>Inventory id</th>
+                            <th>Inventory ID</th>
                             <th>Date</th>
-                            <th>Sakhi id</th>
+                            <th>Sakhi ID</th>
                             <th>Delivery Mode</th>
                             <th>Delivery Address</th>
                             <th>Price</th>
