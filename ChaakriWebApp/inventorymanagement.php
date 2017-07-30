@@ -95,7 +95,7 @@ if (isset($_GET['edit'])) {
 		
 		<tbody>
 		<?php
-		$sql = "SELECT * FROM inventory";
+		$sql = "SELECT * FROM ngo_orders";
 		$result = mysqli_query($connection, $sql);
 
 		if (mysqli_num_rows($result) > 0)
