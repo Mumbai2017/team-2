@@ -110,7 +110,6 @@ if (isset($_GET['edit'])) {
 </div>
 </div>
 
-
 <div class="panel panel-default" style="margin-top: -60px;margin-bottom: 10px;padding-bottom: 20px;">
 <div class="row">
 <div class="col-md-2"></div>
