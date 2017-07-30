@@ -1,6 +1,6 @@
 <?php
 include_once('../php_processing/php_includes/db_conx.php');
-$sql = "SELECT *  FROM orders WHERE status = 0";
+$sql = "SELECT *  FROM sakhi_iventory";
 $query = mysqli_query($connection, $sql);
 //echo $sql;
 $check = mysqli_fetch_assoc($query);
@@ -13,7 +13,7 @@ $check = mysqli_fetch_assoc($query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Pending Orders</title>
+    <title>Fullfilled Orders</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -34,23 +34,19 @@ $check = mysqli_fetch_assoc($query);
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php" style="color: white;">
+                <a class="navbar-brand" href="#" style="color: white;">
                     <strong>Chaakri</strong>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="way2sms/sms.php" style="color: white;">Promotion
-                            <span class="sr-only">(current)</span></a>
-                        </li>
-						 <li class="nav-item">
-                            <a class="nav-link" href="sakhiorders.php" style="color: white;">Sakhi Orders<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
@@ -64,14 +60,14 @@ $check = mysqli_fetch_assoc($query);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pending Orders</h1>
+                <h1>Sakhi Inventory</h1>
                 <hr>
-            </div>
+            </div>        
         </div>
         <div class="row">
             <div class="col-md-12">
 
-            </div>
+            </div>        
         </div>
     </div>
 </main>
@@ -83,15 +79,9 @@ $check = mysqli_fetch_assoc($query);
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Customer id</th>
+                            <th>Sakhi-id</th>
+                            <th>Inventory-id</th>
                             <th>Quantity</th>
-                            <th>Inventory id</th>
-                            <th>Date</th>
-                            <th>Sakhi id</th>
-                            <th>Delivery Mode</th>
-                            <th>Delivery Address</th>
-                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -99,15 +89,9 @@ $check = mysqli_fetch_assoc($query);
                       <?php foreach ($query as $key => $quer) : ?>
 
                         <tr>
-                            <th scope="row"><?php echo $quer['id'];?></th>
-                            <td><?php echo $quer['customer_id'];?></td>
-                            <td><?php echo $quer['quantity'];?></td>
-                            <td><?php echo $quer['inventory_id'];?></td>
-                            <td><?php echo $quer['orderTS'];?></td>
                             <td><?php echo $quer['sakhi_id'];?></td>
-                            <td><?php echo $quer['delivery_mode'];?></td>
-                            <td><?php echo $quer['delivery_address'];?></td>
-                            <td><?php echo $quer['price'];?></td>
+                            <td><?php echo $quer['inventory_id'];?></td>
+                            <td><?php echo $quer['quantity'];?></td>
                         </tr>
                       <?php endforeach; ?>
                       <?php else : ?>
@@ -115,10 +99,9 @@ $check = mysqli_fetch_assoc($query);
                           <h3>Sorry, no results found! </h3>
                           </div>
                       <?php endif; ?>
-
                     </tbody>
                 </table>
-            </div>
+            </div>        
         </div>
 
 
