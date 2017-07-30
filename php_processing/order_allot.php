@@ -43,7 +43,10 @@ if(isset($_GET['order_id'])){
 
    if($limit < 2)
     {  include_once("sakhiOrderAllotment.php");
-       getnewsakhi_oncancel($limit);
+       $sakhi_id = getnewsakhi_oncancel($limit);
+       $sql = "UPDATE `orders` SET `sakhi_id`= $sakhi_id WHERE id = $order_id";
+       $query = mysqli_query($connection, $sql);
+       
     }
     else{
       $sql = "UPDATE `orders` SET `sakhi_id`= 100 WHERE id = $order_id";
