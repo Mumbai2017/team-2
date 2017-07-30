@@ -58,6 +58,8 @@ public class OrderList extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    String timesl;
+
     private OnFragmentInteractionListener mListener;
 
     public OrderList() {
@@ -303,6 +305,9 @@ public class OrderList extends Fragment {
                         @Override
                         public void onClick(View view) {
 
+                            SharedPreferences prefs = getContext().getSharedPreferences("LoginPref", MODE_PRIVATE);
+                            timesl = prefs.getString("Timeslot", "Noslot");
+
                             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
 
                             alertDialog.setTitle("Change Delivery Status");
@@ -313,12 +318,15 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=pickup";
+                                    Toast.makeText(getContext(),stime1+" Pickup",Toast.LENGTH_SHORT).show();
+
+                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=pickup&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
 
                                     try {
                                         client.execute(new HttpGet(url));
                                     } catch(IOException e) {
+                                        Log.e("Errorr","Error");
                                         //do something here
                                     }
 
@@ -329,7 +337,9 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=delivery";
+                                    Toast.makeText(getContext(),stime1+" Delivery",Toast.LENGTH_SHORT).show();
+
+                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=delivery&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
 
                                     try {
@@ -344,7 +354,9 @@ public class OrderList extends Fragment {
 
                                 public void onClick(DialogInterface dialog, int id) {
 
-                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=cancel";
+                                    Toast.makeText(getContext(),stime1+" Cancel",Toast.LENGTH_SHORT).show();
+
+                                    String url = "http://stylopolitan.com/chaakri/order_allot.php?order_id="+stime1+"&status=cancel&times="+timesl;
                                     HttpClient client = new DefaultHttpClient();
 
                                     try {
