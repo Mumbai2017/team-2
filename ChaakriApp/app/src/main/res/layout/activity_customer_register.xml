@@ -12,27 +12,35 @@
         android:id="@+id/cname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name" />
+        android:hint="Name"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/caddcust"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
-        android:hint="Address" />
+        android:hint="Address"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/cusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mobile Number" />
+        android:hint="Mobile Number"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/cpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:layout_marginLeft="7dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/registerbutton"
