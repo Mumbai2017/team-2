@@ -35,7 +35,7 @@ Button customerloginbutton,sakhiloginbutton;
         customerloginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,CustomerFirst.class);
+                Intent intent = new Intent(MainActivity.this,CustFront.class);
                 startActivity(intent);
 
             }

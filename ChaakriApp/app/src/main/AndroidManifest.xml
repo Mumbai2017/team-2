@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".SakhiFirst" />
         <activity android:name=".SakhiLogin" />
         <activity android:name=".SakhiRegister" />
@@ -33,7 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TechWeb"></activity>
+        <activity android:name=".TechWeb" />
+        <activity android:name=".CustFront" />
+        <activity android:name=".PastOrders"></activity>
     </application>
 
 </manifest>
