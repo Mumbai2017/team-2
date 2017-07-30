@@ -88,7 +88,7 @@ class OrderAdd extends AsyncTask<String, Void, String> {
                 i = new Intent(ctx, NavActivitySakhi.class);
             }
             else if(lvl.equalsIgnoreCase("2")) {
-                i = new Intent(ctx,NavCustActivity.class);
+                i = new Intent(ctx,CustomerOrder.class);
             }
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);

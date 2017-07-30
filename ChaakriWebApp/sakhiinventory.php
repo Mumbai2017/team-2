@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sakhis</title>
+    <title>Fullfilled Orders</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -33,16 +33,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="dashboard.html" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" style="color: white;">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ordersummary.html" style="color: white;">Orders<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="updateinventory.html" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Sakhiorders.html" style="color: white;">Sakhi<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="inventorymanagement.php" style="color: white;">Inventory<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Fulfilled Orders</h1>
+                <h1>Sakhi Inventory</h1>
                 <hr>
             </div>        
         </div>
@@ -75,22 +72,14 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Mobile No.</th>
-                            <th>Inventory_id</th>
-                            <th>Date</th>
+                            <th>Sakhi-id</th>
+                            <th>Sname</th>
+                            <th>Inventory-Name</th>
                             <th>Quantity</th>
-                            <th>Address</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">Nan</td>
-                            <td>Nan</td>
-                            <td>Nan</td>
-                            <td>Nan</td>
                             <td>Nan</td>
                             <td>Nan</td>
                             <td>Nan</td>

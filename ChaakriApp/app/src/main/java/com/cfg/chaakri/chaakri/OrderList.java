@@ -307,7 +307,7 @@ public class OrderList extends Fragment {
 
                             alertDialog.setTitle("Change Delivery Status");
 
-                            alertDialog.setMessage("CLick to alter delivery status");
+                            alertDialog.setMessage("Click to alter delivery status");
 
                             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Pick-Up", new DialogInterface.OnClickListener() {
 

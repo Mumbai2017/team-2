@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(i);
             } else if (userlvl.equalsIgnoreCase("2")) {
                 Toast.makeText(getApplicationContext(),"Customer logged in!",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(SplashActivity.this, NavCustActivity.class);
+                Intent i = new Intent(SplashActivity.this, CustomerOrder.class);
                 startActivity(i);
             }
             else
