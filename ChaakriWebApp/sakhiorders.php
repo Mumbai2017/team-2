@@ -57,7 +57,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Sakhi Inventory</h1>
+                <h1>Sakhi Orders</h1>
                 <hr>
             </div>        
         </div>
@@ -76,19 +76,39 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Sakhi-id</th>
-                            <th>Sname</th>
-                            <th>Inventory-Name</th>
+                            <th>Order Date</th>
+							<th>Sakhi Name</th>
+                            <th>Product</th>
                             <th>Quantity</th>
+							<th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Nan</td>
-                            <td>Nan</td>
-                            <td>Nan</td>
-                            <td>Nan</td>
+                            <td>2017-07-29 20:10:26</td>
+                            <td>Sneha Joshi</td>
+                            <td>Punjabi Masala</td>
+                            <td>75</td>
+							<td><a href="#" class="btn btn-primary">Dispatch Order</a></td>
                         </tr>
+						<tr>
+                            <td>2017-07-23 00:04:23</td>
+                            <td>Nitu Patil</td>
+                            <td>Methi Masala</td>
+                            <td>100</td>
+							<td><a href="#" class="btn btn-primary">Dispatch Order</a></td>
+                        </tr>
+						<tr>
+                            <td>2017-07-30 00:02:57</td>
+                            <td>Hiral Kumar</td>
+                            <td>Peppery Oats</td>
+                            <td>45</td>
+							<td><a href="#" class="btn btn-primary">Dispatch Order</a></td>
+                        </tr>
+						
+						
+						
+						
                     </tbody>
                 </table>
             </div>        

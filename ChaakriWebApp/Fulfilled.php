@@ -84,16 +84,16 @@ $check = mysqli_fetch_assoc($query);
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Customer id</th>
+                            <th>Customer ID</th>
                             <th>Quantity</th>
-                            <th>Inventory id</th>
+                            <th>Inventory ID</th>
                             <th>Date</th>
                             <th>Delivery</th>
-                            <th>Sakhi id</th>
+                            <th>Sakhi ID</th>
                             <th>Status</th>
                             <th>Delivery Mode</th>
                             <th>Delivery Address</th>
-                            <th>Price</th>
+							<th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,6 +109,7 @@ $check = mysqli_fetch_assoc($query);
                             <td><?php echo $quer['deliveryTS'];?></td>
 
                             <td><?php echo $quer['sakhi_id'];?></td>
+							<td><?php echo $quer['status'];?></td>
                             <td><?php echo $quer['delivery_mode'];?></td>
                             <td><?php echo $quer['delivery_address'];?></td>
                             <td><?php echo $quer['price'];?></td>
