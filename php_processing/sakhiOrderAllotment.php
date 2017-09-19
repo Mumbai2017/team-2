@@ -146,7 +146,7 @@ function GetDistance($lat1, $lat2, $long1, $long2)
 
 /*
 $coordinates1 = get_coordinates('Suprabhat, Neelam Nagar, Mulund East');
-$coordinates2 = get_coordinates(', Prism Towers, Goregoan, Mumbai');
+$coordinates2 = get_coordinates('Suprabhat, Prism Towers, Goregoan, Mumbai');
 
 if ( !$coordinates1 || !$coordinates2 )
 {
